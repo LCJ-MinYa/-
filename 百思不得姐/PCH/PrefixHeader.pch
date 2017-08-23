@@ -9,9 +9,12 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+//只有定义类OBJC(即OC代码，防止C混写的时候报错)这个宏，才引入编译
+#ifdef __OBJC__
 #import "LCJAPIConfig.h"
 #import "LCJColor.h"
 #import "LCJDimensConfig.h"
 #import "LCJCommonConfig.h"
+#endif
 
 #endif /* PrefixHeader_pch */
