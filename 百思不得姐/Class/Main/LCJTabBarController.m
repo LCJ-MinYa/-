@@ -62,13 +62,13 @@
      * 首先导入#import "LiLiNavigationController.h"
      * 创建导航控制器时使用LiLiNavigationController创建
      */
-    
+
     //tabbar的相关设置
     nav.tabBarItem.title = title;
     nav.tabBarItem.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     nav.tabBarItem.selectedImage = [selectImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    [nav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:140/255.0 green:132/255.0 blue:129/255.0 alpha:1]} forState:UIControlStateNormal];
-    [nav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:81/255.0 green:81/255.0 blue:81/255.0 alpha:1]} forState:UIControlStateSelected];
+    [nav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: LCJColor(140, 132, 129)} forState:UIControlStateNormal];
+    [nav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: LCJColor(81, 81, 81)} forState:UIControlStateSelected];
     
     //添加到根视图tabBar中
     [self addChildViewController:nav];

@@ -1,0 +1,17 @@
+//
+//  PrefixHeader.pch
+//  百思不得姐
+//
+//  Created by minya on 2017/8/23.
+//  Copyright © 2017年 LiChaoJun. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "LCJAPIConfig.h"
+#import "LCJColor.h"
+#import "LCJDimensConfig.h"
+#import "LCJCommonConfig.h"
+
+#endif /* PrefixHeader_pch */

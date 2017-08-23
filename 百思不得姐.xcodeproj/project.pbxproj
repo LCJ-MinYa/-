@@ -15,6 +15,10 @@
 		352382391F4D2EDE0035FF17 /* LCJNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382381F4D2EDE0035FF17 /* LCJNewViewController.m */; };
 		3523823C1F4D2EF70035FF17 /* LCJAttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3523823B1F4D2EF70035FF17 /* LCJAttentionViewController.m */; };
 		3523823F1F4D2F010035FF17 /* LCJMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3523823E1F4D2F010035FF17 /* LCJMineViewController.m */; };
+		352382441F4D67240035FF17 /* LCJAPIConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382431F4D67240035FF17 /* LCJAPIConfig.m */; };
+		352382471F4D67630035FF17 /* LCJColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382461F4D67630035FF17 /* LCJColor.m */; };
+		3523824A1F4D679E0035FF17 /* LCJDimensConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382491F4D679E0035FF17 /* LCJDimensConfig.m */; };
+		3523824D1F4D67B10035FF17 /* LCJCommonConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3523824C1F4D67B10035FF17 /* LCJCommonConfig.m */; };
 		35889E7F1F4D16D500150C99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35889E7E1F4D16D500150C99 /* Assets.xcassets */; };
 		35889E8D1F4D16D500150C99 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35889E8C1F4D16D500150C99 /* _____Tests.m */; };
 		35889E981F4D16D500150C99 /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35889E971F4D16D500150C99 /* _____UITests.m */; };
@@ -53,6 +57,15 @@
 		3523823B1F4D2EF70035FF17 /* LCJAttentionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJAttentionViewController.m; sourceTree = "<group>"; };
 		3523823D1F4D2F010035FF17 /* LCJMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJMineViewController.h; sourceTree = "<group>"; };
 		3523823E1F4D2F010035FF17 /* LCJMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJMineViewController.m; sourceTree = "<group>"; };
+		352382411F4D652E0035FF17 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		352382421F4D67240035FF17 /* LCJAPIConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJAPIConfig.h; sourceTree = "<group>"; };
+		352382431F4D67240035FF17 /* LCJAPIConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJAPIConfig.m; sourceTree = "<group>"; };
+		352382451F4D67630035FF17 /* LCJColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJColor.h; sourceTree = "<group>"; };
+		352382461F4D67630035FF17 /* LCJColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJColor.m; sourceTree = "<group>"; };
+		352382481F4D679E0035FF17 /* LCJDimensConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJDimensConfig.h; sourceTree = "<group>"; };
+		352382491F4D679E0035FF17 /* LCJDimensConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJDimensConfig.m; sourceTree = "<group>"; };
+		3523824B1F4D67B10035FF17 /* LCJCommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJCommonConfig.h; sourceTree = "<group>"; };
+		3523824C1F4D67B10035FF17 /* LCJCommonConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJCommonConfig.m; sourceTree = "<group>"; };
 		35889E6F1F4D16D500150C99 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35889E7E1F4D16D500150C99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35889E831F4D16D500150C99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -158,6 +171,22 @@
 			path = New;
 			sourceTree = "<group>";
 		};
+		352382401F4D65090035FF17 /* PCH */ = {
+			isa = PBXGroup;
+			children = (
+				352382411F4D652E0035FF17 /* PrefixHeader.pch */,
+				352382451F4D67630035FF17 /* LCJColor.h */,
+				352382461F4D67630035FF17 /* LCJColor.m */,
+				352382421F4D67240035FF17 /* LCJAPIConfig.h */,
+				352382431F4D67240035FF17 /* LCJAPIConfig.m */,
+				352382481F4D679E0035FF17 /* LCJDimensConfig.h */,
+				352382491F4D679E0035FF17 /* LCJDimensConfig.m */,
+				3523824B1F4D67B10035FF17 /* LCJCommonConfig.h */,
+				3523824C1F4D67B10035FF17 /* LCJCommonConfig.m */,
+			);
+			path = PCH;
+			sourceTree = "<group>";
+		};
 		35889E661F4D16D400150C99 = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +210,7 @@
 		35889E711F4D16D500150C99 /* 百思不得姐 */ = {
 			isa = PBXGroup;
 			children = (
+				352382401F4D65090035FF17 /* PCH */,
 				352382251F4D2D4C0035FF17 /* Class */,
 				3523821F1F4D295B0035FF17 /* Enter */,
 				35889E721F4D16D500150C99 /* Supporting Files */,
@@ -350,12 +380,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				352382441F4D67240035FF17 /* LCJAPIConfig.m in Sources */,
 				352382361F4D2ECC0035FF17 /* LCJCreamViewController.m in Sources */,
 				352382241F4D295B0035FF17 /* main.m in Sources */,
+				352382471F4D67630035FF17 /* LCJColor.m in Sources */,
+				3523824D1F4D67B10035FF17 /* LCJCommonConfig.m in Sources */,
 				352382331F4D2E400035FF17 /* LCJNavigationController.m in Sources */,
 				3523823F1F4D2F010035FF17 /* LCJMineViewController.m in Sources */,
 				3523823C1F4D2EF70035FF17 /* LCJAttentionViewController.m in Sources */,
 				352382231F4D295B0035FF17 /* AppDelegate.m in Sources */,
+				3523824A1F4D679E0035FF17 /* LCJDimensConfig.m in Sources */,
 				3523822D1F4D2D930035FF17 /* LCJTabBarController.m in Sources */,
 				352382391F4D2EDE0035FF17 /* LCJNewViewController.m in Sources */,
 			);
@@ -487,6 +521,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = N8578NSZEV;
+				GCC_PREFIX_HEADER = "百思不得姐/PCH/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -501,6 +536,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = N8578NSZEV;
+				GCC_PREFIX_HEADER = "百思不得姐/PCH/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
