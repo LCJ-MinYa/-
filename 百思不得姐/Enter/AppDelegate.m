@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LCJTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,10 +17,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //1.创建窗口
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    //2.设置根控制器
+    self.window.rootViewController = [[LCJTabBarController alloc] init];
+    
+    //3.显示主界面
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 }
