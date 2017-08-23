@@ -20,6 +20,6 @@
 //全局颜色相关
 #define LCJColorAlpha(R, G, B, A) [UIColor colorWithRed:(R)/255.0 green:(G)/255.0 blue:(B)/255.0 alpha:(A)/255.0]
 #define LCJColor(R, G, B) LCJColorAlpha((R), (G), (B), 255)
-#define LCJRandomColor LCJColor(arcrandom_uniform(255), arcrandom_uniform(255), arcrandom_uniform(255))
+#define LCJRandomColor LCJColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
 
 @end

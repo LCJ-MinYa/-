@@ -15,16 +15,43 @@
 
 @interface LCJTabBarController ()
 
+//中间的发布按钮
+@property (nonatomic, strong) UIButton * publishButton;
+
 @end
 
 @implementation LCJTabBarController
 
-- (void)viewDidLoad {
+#pragma mark - 懒加载发布按钮
+-(UIButton *)publishButton
+{
+    if(!_publishButton){
+        _publishButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_publishButton setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
+        [_publishButton setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+        _publishButton.frame = CGRectMake(0, 0, self.tabBar.frame.size.width / 5, self.tabBar.frame.size.height);
+        _publishButton.center = CGPointMake(self.tabBar.frame.size.width * 0.5, self.tabBar.frame.size.height * 0.5);
+        [_publishButton addTarget:self action:@selector(publishButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _publishButton;
+}
+
+#pragma mark - 程序初始化
+-(void)viewDidLoad {
     [super viewDidLoad];
     [self creatAllNav];
 }
 
-//创建所有子控制器
+#pragma mark - 视图即将显示添加发布按钮
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    //增加发布按钮到视图
+    [self.tabBar addSubview:self.publishButton];
+}
+
+#pragma mark - 创建所有子控制器
 -(void)creatAllNav
 {
     //添加第一个导航子控制器[精华]
@@ -35,6 +62,9 @@
     LCJNewViewController * new = [[LCJNewViewController alloc] init];
     [self creatNav:new image:[UIImage imageNamed:@"tabBar_new_icon"] selectImage:[UIImage imageNamed:@"tabBar_new_click_icon"] title:@"新帖"];
     
+    //添加占位控制器[发布按钮]
+    [self creatNav:[[UIViewController alloc] init] image:[UIImage imageNamed:@""] selectImage:[UIImage imageNamed:@""] title:nil];
+    
     //添加第三个导航子控制器[关注]
     LCJAttentionViewController * attention = [[LCJAttentionViewController alloc] init];
     [self creatNav:attention image:[UIImage imageNamed:@"tabBar_friendTrends_icon"] selectImage:[UIImage imageNamed:@"tabBar_friendTrends_click_icon"] title:@"关注"];
@@ -43,10 +73,11 @@
     LCJMineViewController * mine = [[LCJMineViewController alloc] init];
     [self creatNav:mine image:[UIImage imageNamed:@"tabBar_me_icon"] selectImage:[UIImage imageNamed:@"tabBar_me_click_icon"] title:@"我"];
     
-    [UITabBar appearance].barTintColor = [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1];
+    [UITabBar appearance].barTintColor = LCJColor(255, 255, 255);
 }
 
-//封装导航控制器的创建
+
+#pragma mark - 封装导航控制器的创建
 - (void)creatNav:(UIViewController *)viewVc image:(UIImage *)image selectImage:(UIImage *)selectImage title:(NSString *)title{
     
     //设置每个页面的导航控制器标题
@@ -65,8 +96,10 @@
 
     //tabbar的相关设置
     nav.tabBarItem.title = title;
-    nav.tabBarItem.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    nav.tabBarItem.selectedImage = [selectImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    if(image){
+        nav.tabBarItem.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        nav.tabBarItem.selectedImage = [selectImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
     [nav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: LCJColor(140, 132, 129)} forState:UIControlStateNormal];
     [nav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: LCJColor(81, 81, 81)} forState:UIControlStateSelected];
     
@@ -74,9 +107,10 @@
     [self addChildViewController:nav];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+#pragma mark - 发布按钮点击事件
+-(void)publishButtonClick
+{
+    LCJLog(@"点击发布按钮");
 }
 
 @end
