@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35889E741F4D16D500150C99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35889E731F4D16D500150C99 /* main.m */; };
-		35889E771F4D16D500150C99 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35889E761F4D16D500150C99 /* AppDelegate.m */; };
 		35889E7F1F4D16D500150C99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35889E7E1F4D16D500150C99 /* Assets.xcassets */; };
-		35889E821F4D16D500150C99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35889E801F4D16D500150C99 /* LaunchScreen.storyboard */; };
 		35889E8D1F4D16D500150C99 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35889E8C1F4D16D500150C99 /* _____Tests.m */; };
 		35889E981F4D16D500150C99 /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35889E971F4D16D500150C99 /* _____UITests.m */; };
+		35CB0F231F4D2331005E466F /* Enter in Resources */ = {isa = PBXBuildFile; fileRef = 35CB0F221F4D2331005E466F /* Enter */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,11 +32,7 @@
 
 /* Begin PBXFileReference section */
 		35889E6F1F4D16D500150C99 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		35889E731F4D16D500150C99 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		35889E751F4D16D500150C99 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		35889E761F4D16D500150C99 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		35889E7E1F4D16D500150C99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		35889E811F4D16D500150C99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35889E831F4D16D500150C99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35889E881F4D16D500150C99 /* 百思不得姐Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35889E8C1F4D16D500150C99 /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____Tests.m"; sourceTree = "<group>"; };
@@ -46,6 +40,7 @@
 		35889E931F4D16D500150C99 /* 百思不得姐UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35889E971F4D16D500150C99 /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____UITests.m"; sourceTree = "<group>"; };
 		35889E991F4D16D500150C99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35CB0F221F4D2331005E466F /* Enter */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Enter; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,11 +91,7 @@
 		35889E711F4D16D500150C99 /* 百思不得姐 */ = {
 			isa = PBXGroup;
 			children = (
-				35889E751F4D16D500150C99 /* AppDelegate.h */,
-				35889E761F4D16D500150C99 /* AppDelegate.m */,
-				35889E7E1F4D16D500150C99 /* Assets.xcassets */,
-				35889E801F4D16D500150C99 /* LaunchScreen.storyboard */,
-				35889E831F4D16D500150C99 /* Info.plist */,
+				35CB0F221F4D2331005E466F /* Enter */,
 				35889E721F4D16D500150C99 /* Supporting Files */,
 			);
 			path = "百思不得姐";
@@ -109,7 +100,8 @@
 		35889E721F4D16D500150C99 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				35889E731F4D16D500150C99 /* main.m */,
+				35889E7E1F4D16D500150C99 /* Assets.xcassets */,
+				35889E831F4D16D500150C99 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -194,6 +186,7 @@
 		35889E671F4D16D400150C99 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LCJ;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = LiChaoJun;
 				TargetAttributes = {
@@ -241,8 +234,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35889E821F4D16D500150C99 /* LaunchScreen.storyboard in Resources */,
 				35889E7F1F4D16D500150C99 /* Assets.xcassets in Resources */,
+				35CB0F231F4D2331005E466F /* Enter in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +260,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35889E771F4D16D500150C99 /* AppDelegate.m in Sources */,
-				35889E741F4D16D500150C99 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,17 +293,6 @@
 			targetProxy = 35889E941F4D16D500150C99 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		35889E801F4D16D500150C99 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35889E811F4D16D500150C99 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		35889E9A1F4D16D500150C99 /* Debug */ = {
@@ -407,6 +387,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = N8578NSZEV;
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -420,6 +401,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = N8578NSZEV;
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -498,6 +480,7 @@
 				35889E9E1F4D16D500150C99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		35889E9F1F4D16D500150C99 /* Build configuration list for PBXNativeTarget "百思不得姐Tests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +489,7 @@
 				35889EA11F4D16D500150C99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		35889EA21F4D16D500150C99 /* Build configuration list for PBXNativeTarget "百思不得姐UITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +498,7 @@
 				35889EA41F4D16D500150C99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
