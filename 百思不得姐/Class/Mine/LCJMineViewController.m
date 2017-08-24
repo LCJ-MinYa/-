@@ -8,6 +8,7 @@
 
 #import "LCJMineViewController.h"
 #import "LCJNavButtonItem.h"
+#import "LCJSettingViewController.h"
 
 @interface LCJMineViewController ()
 
@@ -36,6 +37,10 @@
 -(void)settingButtonClick
 {
     LCJLog(@"点击设置按钮");
+    LCJSettingViewController * setting = [[LCJSettingViewController alloc] init];
+    setting.view.backgroundColor = LCJRandomColor;
+    setting.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:setting animated:YES];
 }
 
 #pragma mark 右侧moon按钮点击事件

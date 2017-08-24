@@ -12,6 +12,7 @@
 #import "LCJAttentionViewController.h"
 #import "LCJMineViewController.h"
 #import "LCJTabBar.h"
+#import "LCJNavigationController.h"
 
 @implementation LCJTabBarController
 
@@ -37,19 +38,19 @@
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
     //添加第一个导航子控制器[精华]
-    UINavigationController * cream = [[UINavigationController alloc] initWithRootViewController:[[LCJCreamViewController alloc] init]];
+    LCJNavigationController * cream = [[LCJNavigationController alloc] initWithRootViewController:[[LCJCreamViewController alloc] init]];
     [self creatNav:cream image:[UIImage imageNamed:@"tabBar_essence_icon"] selectImage:[UIImage imageNamed:@"tabBar_essence_click_icon"] title:@"精华"];
     
     //添加第二个导航子控制器[新帖]
-    UINavigationController * new = [[UINavigationController alloc] initWithRootViewController:[[LCJNewViewController alloc] init]];
+    LCJNavigationController * new = [[LCJNavigationController alloc] initWithRootViewController:[[LCJNewViewController alloc] init]];
     [self creatNav:new image:[UIImage imageNamed:@"tabBar_new_icon"] selectImage:[UIImage imageNamed:@"tabBar_new_click_icon"] title:@"新帖"];
     
     //添加第三个导航子控制器[关注]
-    UINavigationController * attention = [[UINavigationController alloc] initWithRootViewController:[[LCJAttentionViewController alloc] init]];
+    LCJNavigationController * attention = [[LCJNavigationController alloc] initWithRootViewController:[[LCJAttentionViewController alloc] init]];
     [self creatNav:attention image:[UIImage imageNamed:@"tabBar_friendTrends_icon"] selectImage:[UIImage imageNamed:@"tabBar_friendTrends_click_icon"] title:@"关注"];
     
     //添加第四个导航子控制器[我]
-    UINavigationController * mine = [[UINavigationController alloc] initWithRootViewController:[[LCJMineViewController alloc] init]];
+    LCJNavigationController * mine = [[LCJNavigationController alloc] initWithRootViewController:[[LCJMineViewController alloc] init]];
     [self creatNav:mine image:[UIImage imageNamed:@"tabBar_me_icon"] selectImage:[UIImage imageNamed:@"tabBar_me_click_icon"] title:@"我"];
     
     [UITabBar appearance].barTintColor = LCJColor(255, 255, 255);
