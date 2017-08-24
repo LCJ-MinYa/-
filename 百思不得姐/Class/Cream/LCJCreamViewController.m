@@ -16,8 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = LCJCommonBgColor;
+    self.navigationItem.title = @"精华";
+    self.view.backgroundColor = [UIColor redColor];
 }
 
 @end

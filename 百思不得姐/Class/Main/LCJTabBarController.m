@@ -37,19 +37,19 @@
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
     //添加第一个导航子控制器[精华]
-    LCJCreamViewController * cream = [[LCJCreamViewController alloc] init];
+    UINavigationController * cream = [[UINavigationController alloc] initWithRootViewController:[[LCJCreamViewController alloc] init]];
     [self creatNav:cream image:[UIImage imageNamed:@"tabBar_essence_icon"] selectImage:[UIImage imageNamed:@"tabBar_essence_click_icon"] title:@"精华"];
     
     //添加第二个导航子控制器[新帖]
-    LCJNewViewController * new = [[LCJNewViewController alloc] init];
+    UINavigationController * new = [[UINavigationController alloc] initWithRootViewController:[[LCJNewViewController alloc] init]];
     [self creatNav:new image:[UIImage imageNamed:@"tabBar_new_icon"] selectImage:[UIImage imageNamed:@"tabBar_new_click_icon"] title:@"新帖"];
     
     //添加第三个导航子控制器[关注]
-    LCJAttentionViewController * attention = [[LCJAttentionViewController alloc] init];
+    UINavigationController * attention = [[UINavigationController alloc] initWithRootViewController:[[LCJAttentionViewController alloc] init]];
     [self creatNav:attention image:[UIImage imageNamed:@"tabBar_friendTrends_icon"] selectImage:[UIImage imageNamed:@"tabBar_friendTrends_click_icon"] title:@"关注"];
     
     //添加第四个导航子控制器[我]
-    LCJMineViewController * mine = [[LCJMineViewController alloc] init];
+    UINavigationController * mine = [[UINavigationController alloc] initWithRootViewController:[[LCJMineViewController alloc] init]];
     [self creatNav:mine image:[UIImage imageNamed:@"tabBar_me_icon"] selectImage:[UIImage imageNamed:@"tabBar_me_click_icon"] title:@"我"];
     
     [UITabBar appearance].barTintColor = LCJColor(255, 255, 255);
@@ -57,7 +57,6 @@
     //更换UITabBarController内部的TabBar(KVC)
     [self setValue:[[LCJTabBar alloc] init] forKeyPath:@"tabBar"];
 }
-
 
 #pragma mark - 封装导航控制器的创建
 - (void)creatNav:(UIViewController *)viewVc image:(UIImage *)image selectImage:(UIImage *)selectImage title:(NSString *)title{
