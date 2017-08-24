@@ -12,7 +12,6 @@
 		352382231F4D295B0035FF17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382211F4D295B0035FF17 /* AppDelegate.m */; };
 		352382241F4D295B0035FF17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382221F4D295B0035FF17 /* main.m */; };
 		3523822D1F4D2D930035FF17 /* LCJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3523822C1F4D2D930035FF17 /* LCJTabBarController.m */; };
-		352382331F4D2E400035FF17 /* LCJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382321F4D2E400035FF17 /* LCJNavigationController.m */; };
 		352382361F4D2ECC0035FF17 /* LCJCreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382351F4D2ECC0035FF17 /* LCJCreamViewController.m */; };
 		352382391F4D2EDE0035FF17 /* LCJNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382381F4D2EDE0035FF17 /* LCJNewViewController.m */; };
 		3523823C1F4D2EF70035FF17 /* LCJAttentionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3523823B1F4D2EF70035FF17 /* LCJAttentionViewController.m */; };
@@ -53,8 +52,6 @@
 		352382221F4D295B0035FF17 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3523822B1F4D2D930035FF17 /* LCJTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJTabBarController.h; sourceTree = "<group>"; };
 		3523822C1F4D2D930035FF17 /* LCJTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJTabBarController.m; sourceTree = "<group>"; };
-		352382311F4D2E400035FF17 /* LCJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJNavigationController.h; sourceTree = "<group>"; };
-		352382321F4D2E400035FF17 /* LCJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJNavigationController.m; sourceTree = "<group>"; };
 		352382341F4D2ECC0035FF17 /* LCJCreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJCreamViewController.h; sourceTree = "<group>"; };
 		352382351F4D2ECC0035FF17 /* LCJCreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJCreamViewController.m; sourceTree = "<group>"; };
 		352382371F4D2EDE0035FF17 /* LCJNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJNewViewController.h; sourceTree = "<group>"; };
@@ -155,8 +152,6 @@
 				3523822C1F4D2D930035FF17 /* LCJTabBarController.m */,
 				350BD6E91F4E66B4006D23F1 /* LCJTabBar.h */,
 				350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */,
-				352382311F4D2E400035FF17 /* LCJNavigationController.h */,
-				352382321F4D2E400035FF17 /* LCJNavigationController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -397,7 +392,6 @@
 				352382241F4D295B0035FF17 /* main.m in Sources */,
 				352382471F4D67630035FF17 /* LCJColor.m in Sources */,
 				3523824D1F4D67B10035FF17 /* LCJCommonConfig.m in Sources */,
-				352382331F4D2E400035FF17 /* LCJNavigationController.m in Sources */,
 				3523823F1F4D2F010035FF17 /* LCJMineViewController.m in Sources */,
 				3523823C1F4D2EF70035FF17 /* LCJAttentionViewController.m in Sources */,
 				352382231F4D295B0035FF17 /* AppDelegate.m in Sources */,
