@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350BD6EB1F4E66B4006D23F1 /* LCJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */; };
 		352382231F4D295B0035FF17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382211F4D295B0035FF17 /* AppDelegate.m */; };
 		352382241F4D295B0035FF17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382221F4D295B0035FF17 /* main.m */; };
 		3523822D1F4D2D930035FF17 /* LCJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3523822C1F4D2D930035FF17 /* LCJTabBarController.m */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		350BD6E91F4E66B4006D23F1 /* LCJTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJTabBar.h; sourceTree = "<group>"; };
+		350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJTabBar.m; sourceTree = "<group>"; };
 		352382201F4D295B0035FF17 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		352382211F4D295B0035FF17 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		352382221F4D295B0035FF17 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 			children = (
 				3523822B1F4D2D930035FF17 /* LCJTabBarController.h */,
 				3523822C1F4D2D930035FF17 /* LCJTabBarController.m */,
+				350BD6E91F4E66B4006D23F1 /* LCJTabBar.h */,
+				350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */,
 				352382311F4D2E400035FF17 /* LCJNavigationController.h */,
 				352382321F4D2E400035FF17 /* LCJNavigationController.m */,
 			);
@@ -380,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				350BD6EB1F4E66B4006D23F1 /* LCJTabBar.m in Sources */,
 				352382441F4D67240035FF17 /* LCJAPIConfig.m in Sources */,
 				352382361F4D2ECC0035FF17 /* LCJCreamViewController.m in Sources */,
 				352382241F4D295B0035FF17 /* main.m in Sources */,
