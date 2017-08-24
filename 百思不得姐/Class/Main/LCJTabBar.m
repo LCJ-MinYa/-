@@ -24,8 +24,10 @@
         UIButton * publishButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [publishButton setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
         [publishButton setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
-        publishButton.frame = CGRectMake(0, 0, self.frame.size.width / 5, self.frame.size.height);
-        publishButton.center = CGPointMake(self.frame.size.width * 0.5, self.frame.size.height * 0.5);
+        publishButton.lcj_width = self.frame.size.width / 5;
+        publishButton.lcj_height = self.frame.size.height;
+        publishButton.lcj_centerX = self.frame.size.width * 0.5;
+        publishButton.lcj_centerY = self.frame.size.height * 0.5;
         [publishButton addTarget:self action:@selector(publishButtonClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:publishButton];
         _publishButton = publishButton;

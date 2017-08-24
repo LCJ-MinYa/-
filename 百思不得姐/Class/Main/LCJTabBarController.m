@@ -43,7 +43,7 @@
     
     [UITabBar appearance].barTintColor = LCJColor(255, 255, 255);
     
-    //更换TabBar(KVC)
+    //更换UITabBarController内部的TabBar(KVC)
     [self setValue:[[LCJTabBar alloc] init] forKeyPath:@"tabBar"];
 }
 

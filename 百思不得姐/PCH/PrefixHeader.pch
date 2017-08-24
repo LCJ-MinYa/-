@@ -15,6 +15,7 @@
 #import "LCJColor.h"
 #import "LCJDimensConfig.h"
 #import "LCJCommonConfig.h"
+#import "UIView+LCJExtend.h"
 #endif
 
 #endif /* PrefixHeader_pch */
