@@ -28,7 +28,7 @@
     UITabBarItem * item = [UITabBarItem appearance];
     //普通状态下的文字属性
     NSMutableDictionary * normalAttrs = [NSMutableDictionary dictionary];
-    normalAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
+    //normalAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:10];
     normalAttrs[NSForegroundColorAttributeName] = LCJColor(140, 132, 129);
     [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
     //选中状态下的文字属性

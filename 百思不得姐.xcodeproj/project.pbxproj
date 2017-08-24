@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		350BD6EB1F4E66B4006D23F1 /* LCJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */; };
 		350BD6F41F4E76BD006D23F1 /* UIView+LCJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6F31F4E76BD006D23F1 /* UIView+LCJExtend.m */; };
+		350BD6F81F4ECC37006D23F1 /* LCJNavButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6F71F4ECC37006D23F1 /* LCJNavButtonItem.m */; };
 		352382231F4D295B0035FF17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382211F4D295B0035FF17 /* AppDelegate.m */; };
 		352382241F4D295B0035FF17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382221F4D295B0035FF17 /* main.m */; };
 		3523822D1F4D2D930035FF17 /* LCJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3523822C1F4D2D930035FF17 /* LCJTabBarController.m */; };
@@ -47,6 +48,8 @@
 		350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJTabBar.m; sourceTree = "<group>"; };
 		350BD6F21F4E76BD006D23F1 /* UIView+LCJExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LCJExtend.h"; sourceTree = "<group>"; };
 		350BD6F31F4E76BD006D23F1 /* UIView+LCJExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LCJExtend.m"; sourceTree = "<group>"; };
+		350BD6F61F4ECC37006D23F1 /* LCJNavButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJNavButtonItem.h; sourceTree = "<group>"; };
+		350BD6F71F4ECC37006D23F1 /* LCJNavButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJNavButtonItem.m; sourceTree = "<group>"; };
 		352382201F4D295B0035FF17 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		352382211F4D295B0035FF17 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		352382221F4D295B0035FF17 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -105,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		350BD6F51F4ECC16006D23F1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				350BD6F61F4ECC37006D23F1 /* LCJNavButtonItem.h */,
+				350BD6F71F4ECC37006D23F1 /* LCJNavButtonItem.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		3523821F1F4D295B0035FF17 /* Enter */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +227,7 @@
 		35889E711F4D16D500150C99 /* 百思不得姐 */ = {
 			isa = PBXGroup;
 			children = (
+				350BD6F51F4ECC16006D23F1 /* Common */,
 				352382401F4D65090035FF17 /* PCH */,
 				352382251F4D2D4C0035FF17 /* Class */,
 				3523821F1F4D295B0035FF17 /* Enter */,
@@ -387,6 +400,7 @@
 			files = (
 				350BD6EB1F4E66B4006D23F1 /* LCJTabBar.m in Sources */,
 				350BD6F41F4E76BD006D23F1 /* UIView+LCJExtend.m in Sources */,
+				350BD6F81F4ECC37006D23F1 /* LCJNavButtonItem.m in Sources */,
 				352382441F4D67240035FF17 /* LCJAPIConfig.m in Sources */,
 				352382361F4D2ECC0035FF17 /* LCJCreamViewController.m in Sources */,
 				352382241F4D295B0035FF17 /* main.m in Sources */,
