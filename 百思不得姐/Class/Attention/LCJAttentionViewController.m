@@ -19,8 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = LCJCommonBgColor;
-    
     //标题
     self.navigationItem.title = @"我的关注";
     //左边按钮

@@ -20,8 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = LCJCommonBgColor;
-    
     //标题
     self.navigationItem.title = @"我的关注";
     //右边设置按钮
@@ -38,8 +36,6 @@
 {
     LCJLog(@"点击设置按钮");
     LCJSettingViewController * setting = [[LCJSettingViewController alloc] init];
-    setting.view.backgroundColor = LCJRandomColor;
-    setting.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:setting animated:YES];
 }
 

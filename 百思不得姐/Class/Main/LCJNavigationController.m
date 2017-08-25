@@ -22,7 +22,13 @@
 #pragma mark 重写push方法，里面设置返回键
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
+    //统一设置背景色
+    viewController.view.backgroundColor = LCJRandomColor;
+    
     if(self.childViewControllers.count >= 1){
+        //隐藏tabBar
+        viewController.hidesBottomBarWhenPushed = YES;
+        
         //左上角
         UIButton * backButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [backButton setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
