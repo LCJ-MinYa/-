@@ -8,6 +8,7 @@
 
 #import "LCJAttentionViewController.h"
 #import "LCJNavButtonItem.h"
+#import "LCJLoginViewController.h"
 
 @interface LCJAttentionViewController ()
 
@@ -92,19 +93,24 @@
     [self.view addSubview:btn];
 }
 
+#pragma mark 设置登录注册高亮背景颜色
 -(void)buttonHighlighted:(UIButton *)sender
 {
     sender.backgroundColor = [UIColor redColor];
 }
 
+#pragma mark 设置登录注册普通背景颜色
 -(void)buttonNormal:(UIButton *)sender
 {
     sender.backgroundColor = [UIColor whiteColor];
 }
 
+#pragma mark 设置登录注册点击事件
 -(void)buttonClick
 {
     LCJLog(@"点击登录注册按钮");
+    LCJLoginViewController * login = [[LCJLoginViewController alloc] init];
+    [self presentViewController:login animated:YES completion:nil];
 }
 
 #pragma mark 左侧按钮点击事件
