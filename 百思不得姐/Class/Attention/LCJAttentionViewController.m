@@ -29,9 +29,12 @@
     
     //提示图片
     [self setHintImg];
+    
+    //登陆注册按钮
+    [self setBtn];
 }
 
-#pragma mark 设置导航器相关
+#pragma mark 设置导航器相关[UI]
 -(void)setNav
 {
     //设置背景颜色
@@ -45,7 +48,7 @@
     self.navigationItem.leftBarButtonItems = @[leftButton];
 }
 
-#pragma mark 设置提示文字
+#pragma mark 设置提示文字[UI]
 -(void)setHintText
 {
     //提示文字
@@ -62,7 +65,7 @@
     [self.view addSubview:label];
 }
 
-#pragma mark 设置提示图片
+#pragma mark 设置提示图片[UI]
 -(void)setHintImg
 {
     UIImageView * image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_cry_icon"]];
@@ -71,6 +74,37 @@
     image.lcj_centerY = self.label.frame.origin.y - 24 - 20;
     LCJLog(@"%@", NSStringFromCGRect(image.frame));
     [self.view addSubview:image];
+}
+
+#pragma mark 设置登录注册button[UI]
+-(void)setBtn
+{
+    UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.6, 30)];
+    btn.center = CGPointMake(SCREEN_WIDTH / 2, self.label.frame.origin.y + self.label.frame.size.height + 25 + 20);
+    btn.backgroundColor = [UIColor whiteColor];
+    btn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [btn setTitle:@"立即登录注册" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [btn addTarget:self action:@selector(buttonHighlighted:) forControlEvents:UIControlEventTouchDown];
+    [btn addTarget:self action:@selector(buttonNormal:) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+}
+
+-(void)buttonHighlighted:(UIButton *)sender
+{
+    sender.backgroundColor = [UIColor redColor];
+}
+
+-(void)buttonNormal:(UIButton *)sender
+{
+    sender.backgroundColor = [UIColor whiteColor];
+}
+
+-(void)buttonClick
+{
+    LCJLog(@"点击登录注册按钮");
 }
 
 #pragma mark 左侧按钮点击事件
