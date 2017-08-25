@@ -22,9 +22,6 @@
 #pragma mark 重写push方法，里面设置返回键
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    //统一设置背景色
-    viewController.view.backgroundColor = LCJRandomColor;
-    
     if(self.childViewControllers.count >= 1){
         //隐藏tabBar
         viewController.hidesBottomBarWhenPushed = YES;
@@ -42,8 +39,18 @@
         [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     }
+    
+    //统一设置背景色
+    viewController.view.backgroundColor = LCJRandomColor;
+    
     //下一个页面设置完毕后再push进去
     [super pushViewController:viewController animated:animated];
+}
+
+#pragma mark 重写pop方法
+-(UIViewController *)popViewControllerAnimated:(BOOL)animated
+{
+    return [super popViewControllerAnimated:YES];
 }
 
 #pragma mark #返回键的点击事件

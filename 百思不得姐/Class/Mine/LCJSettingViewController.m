@@ -18,6 +18,7 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"设置";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"自定义" style:UIBarButtonItemStyleDone target:nil action:nil];
 }
 
 @end
