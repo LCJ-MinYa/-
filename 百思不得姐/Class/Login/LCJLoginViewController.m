@@ -74,8 +74,14 @@
     //左边线
     UIImageView * leftImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_register_left_line"]];
     [leftImg sizeToFit];
-    LCJLog(@"%@", NSStringFromCGRect(leftImg.frame));
+    leftImg.center = CGPointMake(SCREEN_WIDTH / 2 - title.frame.size.width / 2 - leftImg.frame.size.width/2 - 10, 15);
     [view addSubview:leftImg];
+
+    //右边线
+    UIImageView * rightImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_register_right_line"]];
+    [rightImg sizeToFit];
+    rightImg.center = CGPointMake(SCREEN_WIDTH / 2 + title.frame.size.width / 2 + rightImg.frame.size.width/2 + 5, 15);
+    [view addSubview:rightImg];
     
     return view;
 }
