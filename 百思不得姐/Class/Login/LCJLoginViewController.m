@@ -7,24 +7,13 @@
 //
 
 #import "LCJLoginViewController.h"
+#import "LCJThirdPartyLoginBtn.h"
 
 @interface LCJLoginViewController ()
 
 @end
 
 @implementation LCJLoginViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    //设置导航器相关
-    [self setNav];
-    
-    //顶部关闭和切换注册登录
-    
-    //第三方登录view
-    [self setThirdPartyLogin];
-}
 
 #pragma mark 设置状态栏文本颜色
 /*
@@ -36,6 +25,20 @@
     return UIStatusBarStyleLightContent;
 }
 
+#pragma mark 初始化
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    //设置导航器相关
+    [self setNav];
+    
+    //顶部关闭和切换注册登录
+    [self setHeader];
+    
+    //第三方登录view
+    [self setThirdPartyLogin];
+}
+
 #pragma mark 设置导航器相关[UI]
 -(void)setNav
 {
@@ -45,14 +48,31 @@
     self.view.layer.contents = (__bridge id _Nullable)(backGroundImage.CGImage);
 }
 
+#pragma mark 设置header[UI]
+-(void)setHeader
+{
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, 40)];
+    
+    //左边关闭按钮
+    UIButton * closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 40, 40)];
+    [closeBtn setImage:[UIImage imageNamed: @"login_close_icon"] forState:UIControlStateNormal];
+    [view addSubview:closeBtn];
+    
+    //右边切换注册登录按钮
+    
+    [self.view addSubview:view];
+}
+
 #pragma mark 设置第三方登录[UI]
 -(void)setThirdPartyLogin
 {
-    UIView * thirdPartyLoginView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 180, SCREEN_WIDTH, 150)];
+    UIView * thirdPartyLoginView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 170, SCREEN_WIDTH, 150)];
     thirdPartyLoginView.backgroundColor = [UIColor clearColor];
     
     UIView * thirdPartyLoginTitle = [self setThirdPartyLoginTitle];
+    UIView * thirdPartyLoginBtn = [self setThirdPartyLoginBtn];
     [thirdPartyLoginView addSubview:thirdPartyLoginTitle];
+    [thirdPartyLoginView addSubview:thirdPartyLoginBtn];
     [self.view addSubview:thirdPartyLoginView];
 }
 
@@ -69,7 +89,6 @@
     [title sizeToFit];
     title.center = CGPointMake(SCREEN_WIDTH / 2, 15);
     [view addSubview:title];
-    LCJLog(@"%@", NSStringFromCGRect(title.frame));
     
     //左边线
     UIImageView * leftImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_register_left_line"]];
@@ -86,4 +105,27 @@
     return view;
 }
 
+#pragma mark 设置第三方登录按钮[UI]
+-(UIView *)setThirdPartyLoginBtn
+{
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, 110)];
+
+    [self creatBtn:view itemLenght:3 itemIndex:0 image:@"login_QQ_icon" selectedImage:@"login_QQ_icon_click" title:@"QQ登录"];
+    [self creatBtn:view itemLenght:3 itemIndex:1 image:@"login_sina_icon" selectedImage:@"login_sina_icon_click" title:@"微博登录"];
+    [self creatBtn:view itemLenght:3 itemIndex:2 image:@"login_tecent_icon" selectedImage:@"login_tecent_icon_click" title:@"腾讯微博"];
+    
+    return view;
+}
+
+#pragma mark 设置第三方登录按钮共用方法[UI]
+-(void)creatBtn:(UIView *)view itemLenght:(int)itemLenght itemIndex:(int)itemIndex image:(NSString *)image selectedImage:(NSString *)selectedImage title:(NSString *)title
+{
+    LCJThirdPartyLoginBtn * button = [[LCJThirdPartyLoginBtn alloc] initWithFrame:CGRectMake(view.lcj_width / itemLenght * itemIndex, 0, view.lcj_width / itemLenght, 110)];
+    [button setImage:[UIImage imageNamed: image] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed: selectedImage] forState:UIControlStateHighlighted];
+    [button setTitle: title forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:12];
+    [view addSubview:button];
+}
 @end

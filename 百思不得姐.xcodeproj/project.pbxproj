@@ -13,6 +13,7 @@
 		350BD6FE1F4ED9E0006D23F1 /* LCJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6FD1F4ED9E0006D23F1 /* LCJNavigationController.m */; };
 		350BD7011F4EDF35006D23F1 /* LCJSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD7001F4EDF35006D23F1 /* LCJSettingViewController.m */; };
 		350BD7051F5011AB006D23F1 /* LCJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD7041F5011AB006D23F1 /* LCJLoginViewController.m */; };
+		350BD7081F53B292006D23F1 /* LCJThirdPartyLoginBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD7071F53B292006D23F1 /* LCJThirdPartyLoginBtn.m */; };
 		352382231F4D295B0035FF17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382211F4D295B0035FF17 /* AppDelegate.m */; };
 		352382241F4D295B0035FF17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 352382221F4D295B0035FF17 /* main.m */; };
 		3523822D1F4D2D930035FF17 /* LCJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3523822C1F4D2D930035FF17 /* LCJTabBarController.m */; };
@@ -59,6 +60,8 @@
 		350BD7001F4EDF35006D23F1 /* LCJSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJSettingViewController.m; sourceTree = "<group>"; };
 		350BD7031F5011AB006D23F1 /* LCJLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJLoginViewController.h; sourceTree = "<group>"; };
 		350BD7041F5011AB006D23F1 /* LCJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJLoginViewController.m; sourceTree = "<group>"; };
+		350BD7061F53B292006D23F1 /* LCJThirdPartyLoginBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJThirdPartyLoginBtn.h; sourceTree = "<group>"; };
+		350BD7071F53B292006D23F1 /* LCJThirdPartyLoginBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJThirdPartyLoginBtn.m; sourceTree = "<group>"; };
 		352382201F4D295B0035FF17 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		352382211F4D295B0035FF17 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		352382221F4D295B0035FF17 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 			children = (
 				350BD6F61F4ECC37006D23F1 /* LCJNavButtonItem.h */,
 				350BD6F71F4ECC37006D23F1 /* LCJNavButtonItem.m */,
+				350BD7061F53B292006D23F1 /* LCJThirdPartyLoginBtn.h */,
+				350BD7071F53B292006D23F1 /* LCJThirdPartyLoginBtn.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				350BD6EB1F4E66B4006D23F1 /* LCJTabBar.m in Sources */,
+				350BD7081F53B292006D23F1 /* LCJThirdPartyLoginBtn.m in Sources */,
 				350BD6F41F4E76BD006D23F1 /* UIView+LCJExtend.m in Sources */,
 				350BD6F81F4ECC37006D23F1 /* LCJNavButtonItem.m in Sources */,
 				352382441F4D67240035FF17 /* LCJAPIConfig.m in Sources */,
