@@ -87,6 +87,16 @@
     //添加输入框
     [self setTextField:imageView frame:CGRectMake(10, 0, imageView.lcj_width-20, imageView.lcj_height/2) placeholder:@"请输入手机号" fontSize:14 keyBoardType:UIKeyboardTypePhonePad isPassWord:false];
     [self setTextField:imageView frame:CGRectMake(10, imageView.lcj_height/2, imageView.lcj_width-20, imageView.lcj_height/2) placeholder:@"请输入密码" fontSize:14 keyBoardType:UIKeyboardTypeDefault isPassWord:true];
+    
+    //添加登陆按钮
+    UIButton * loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 120, imageView.lcj_width, 50)];
+    [loginBtn setBackgroundImage:[UIImage imageNamed:@"loginBtnBg"] forState:UIControlStateNormal];
+    loginBtn.center = CGPointMake(SCREEN_WIDTH/2, 145);
+    loginBtn.titleLabel.text = @"登陆";
+    loginBtn.titleLabel.textColor = [UIColor whiteColor];
+    loginBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [view addSubview:loginBtn];
+    
     [self.view addSubview:view];
 }
 
