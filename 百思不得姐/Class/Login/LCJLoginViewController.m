@@ -35,6 +35,9 @@
     //顶部关闭和切换注册登录
     [self setHeader];
     
+    //登陆内容界面
+    [self setLoginView];
+    
     //第三方登录view
     [self setThirdPartyLogin];
 }
@@ -54,14 +57,58 @@
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, 40)];
     
     //左边关闭按钮
-    UIButton * closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, 40, 40)];
+    UIButton * closeBtn = [[UIButton alloc] initWithFrame:CGRectMake(5, 0, 40, 40)];
     [closeBtn setImage:[UIImage imageNamed: @"login_close_icon"] forState:UIControlStateNormal];
+    [closeBtn addTarget:self action:@selector(closeLoginBtn) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:closeBtn];
     
     //右边切换注册登录按钮
+    UIButton * switchBtn = [[UIButton alloc] initWithFrame:CGRectMake(view.lcj_width - 85, 0, 80, 40)];
+    [switchBtn setTitle:@"注册账号" forState:UIControlStateNormal];
+    [switchBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [switchBtn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    switchBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [view addSubview:switchBtn];
     
     [self.view addSubview:view];
 }
+
+#pragma mark 设置登录页面内容[UI]
+-(void)setLoginView
+{
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 120, SCREEN_WIDTH, 200)];
+    //view.backgroundColor = LCJRandomColor;
+    
+    //添加输入框背景
+    UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_rgister_textfield_bg"]];
+    imageView.center = CGPointMake(SCREEN_WIDTH/2, imageView.lcj_height/2);
+    imageView.userInteractionEnabled = YES;
+    [view addSubview:imageView];
+    //添加输入框
+    [self setTextField:imageView frame:CGRectMake(10, 0, imageView.lcj_width-20, imageView.lcj_height/2) placeholder:@"请输入手机号" fontSize:14 keyBoardType:UIKeyboardTypePhonePad isPassWord:false];
+    [self setTextField:imageView frame:CGRectMake(10, imageView.lcj_height/2, imageView.lcj_width-20, imageView.lcj_height/2) placeholder:@"请输入密码" fontSize:14 keyBoardType:UIKeyboardTypeDefault isPassWord:true];
+    [self.view addSubview:view];
+}
+
+#pragma mark 设置登录页面输入框属性共用[UI]
+-(void)setTextField:(UIImageView *)imageView frame:(CGRect)frame placeholder:(NSString *)placeholder fontSize:(int)fontSize keyBoardType:(UIKeyboardType)keyBoardType isPassWord:(BOOL)isPassWord
+{
+    UITextField * textField = [[UITextField alloc] initWithFrame:frame];
+    textField.borderStyle = UITextBorderStyleNone;
+    textField.placeholder = placeholder;
+    [textField setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [textField setValue:[UIFont boldSystemFontOfSize:fontSize] forKeyPath:@"_placeholderLabel.font"];
+    textField.font = [UIFont systemFontOfSize:fontSize];
+    textField.textColor = [UIColor whiteColor];
+    textField.keyboardType = keyBoardType;
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    textField.tintColor = [UIColor whiteColor];
+    if(isPassWord){
+        textField.secureTextEntry = YES;
+    }
+    [imageView addSubview:textField];
+}
+
 
 #pragma mark 设置第三方登录[UI]
 -(void)setThirdPartyLogin
@@ -128,4 +175,11 @@
     button.titleLabel.font = [UIFont systemFontOfSize:12];
     [view addSubview:button];
 }
+
+#pragma mark 点击关闭登陆界面方法
+-(void)closeLoginBtn
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end
