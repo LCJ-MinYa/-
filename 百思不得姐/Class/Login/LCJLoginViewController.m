@@ -155,6 +155,8 @@
     textField.placeholder = placeholder;
     [textField setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
     [textField setValue:[UIFont boldSystemFontOfSize:fontSize] forKeyPath:@"_placeholderLabel.font"];
+    [textField addTarget:self action:@selector(editingDidBegin:) forControlEvents:UIControlEventEditingDidBegin];
+    [textField addTarget:self action:@selector(editingDidEnd:) forControlEvents:UIControlEventEditingDidEnd];
     textField.font = [UIFont systemFontOfSize:fontSize];
     textField.textColor = [UIColor whiteColor];
     textField.keyboardType = keyBoardType;
@@ -248,6 +250,18 @@
             self.registerView.lcj_x = SCREEN_WIDTH;
         }
     }];
+}
+
+#pragma mark 监听文本输入框获取焦点切换placeholder字体颜色
+-(void)editingDidBegin:(UITextField *)textField
+{
+    [textField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+}
+
+#pragma mark 监听文本输入框失去焦点切换placeholder字体颜色
+-(void)editingDidEnd:(UITextField *)textField
+{
+    [textField setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
 }
 
 #pragma mark 点击关闭登陆界面方法
