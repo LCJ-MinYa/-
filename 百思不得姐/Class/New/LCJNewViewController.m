@@ -19,6 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //设置导航器相关
+    [self setNav];
+}
+
+#pragma mark 设置导航器相关[UI]
+-(void)setNav
+{
+    //设置背景颜色
+    self.view.backgroundColor = LCJCommonBgColor;
+    
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
     //左边按钮
     UIBarButtonItem * leftButton = [LCJNavButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick" target:self action:@selector(leftButtonClick)];

@@ -20,6 +20,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    //设置导航器相关
+    [self setNav];
+}
+
+#pragma mark 设置导航器相关[UI]
+-(void)setNav
+{
+    //设置背景颜色
+    self.view.backgroundColor = LCJCommonBgColor;
+    
     //标题
     self.navigationItem.title = @"我的关注";
     //右边设置按钮
