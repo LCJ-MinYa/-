@@ -10,7 +10,8 @@
 #import "LCJThirdPartyLoginBtn.h"
 
 @interface LCJLoginViewController ()
-
+@property (nonatomic, weak) UIView * loginView;
+@property (nonatomic, weak) UIView * registerView;
 @end
 
 @implementation LCJLoginViewController
@@ -37,6 +38,9 @@
     
     //登陆内容界面
     [self setLoginView];
+    
+    //注册内容界面
+    [self setRegisterView];
     
     //第三方登录view
     [self setThirdPartyLogin];
@@ -68,6 +72,7 @@
     [switchBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [switchBtn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     switchBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [switchBtn addTarget:self action:@selector(showLoginOrRegister:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:switchBtn];
     
     [self.view addSubview:view];
@@ -77,7 +82,7 @@
 -(void)setLoginView
 {
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 120, SCREEN_WIDTH, 200)];
-    //view.backgroundColor = LCJRandomColor;
+    self.loginView = view;
     
     //添加输入框背景
     UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_rgister_textfield_bg"]];
@@ -89,12 +94,54 @@
     [self setTextField:imageView frame:CGRectMake(10, imageView.lcj_height/2, imageView.lcj_width-20, imageView.lcj_height/2) placeholder:@"请输入密码" fontSize:14 keyBoardType:UIKeyboardTypeDefault isPassWord:true];
     
     //添加登陆按钮
-    UIButton * loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 120, imageView.lcj_width, 50)];
-    [loginBtn setBackgroundImage:[UIImage imageNamed:@"loginBtnBg"] forState:UIControlStateNormal];
-    loginBtn.center = CGPointMake(SCREEN_WIDTH/2, 145);
-    loginBtn.titleLabel.text = @"登陆";
+    UIButton * loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 120, imageView.lcj_width, 36)];
+    [loginBtn setBackgroundImage:[UIImage imageNamed:@"login_register_button"] forState:UIControlStateNormal];
+    [loginBtn setBackgroundImage:[UIImage imageNamed:@"login_register_button_click"] forState:UIControlStateHighlighted];
+    [loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
+    loginBtn.center = CGPointMake(SCREEN_WIDTH/2, 138);
     loginBtn.titleLabel.textColor = [UIColor whiteColor];
     loginBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    loginBtn.layer.cornerRadius = 5;
+    loginBtn.layer.masksToBounds = YES;
+    [view addSubview:loginBtn];
+    
+    //忘记密码按钮
+    UIButton * forgetBtn = [[UIButton alloc] initWithFrame:CGRectMake(loginBtn.lcj_width + loginBtn.lcj_x - 70, loginBtn.lcj_y + loginBtn.lcj_height + 10, 70, 30)];
+    [forgetBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
+    [forgetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [forgetBtn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    forgetBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [view addSubview:forgetBtn];
+    
+    [self.view addSubview:view];
+}
+
+
+#pragma mark 设置注册页面内容[UI]
+-(void)setRegisterView
+{
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(self.loginView.lcj_x + SCREEN_WIDTH, 120, SCREEN_WIDTH, 200)];
+    self.registerView = view;
+    
+    //添加输入框背景
+    UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_rgister_textfield_bg"]];
+    imageView.center = CGPointMake(SCREEN_WIDTH/2, imageView.lcj_height/2);
+    imageView.userInteractionEnabled = YES;
+    [view addSubview:imageView];
+    //添加输入框
+    [self setTextField:imageView frame:CGRectMake(10, 0, imageView.lcj_width-20, imageView.lcj_height/2) placeholder:@"请输入手机号" fontSize:14 keyBoardType:UIKeyboardTypePhonePad isPassWord:false];
+    [self setTextField:imageView frame:CGRectMake(10, imageView.lcj_height/2, imageView.lcj_width-20, imageView.lcj_height/2) placeholder:@"请设置密码" fontSize:14 keyBoardType:UIKeyboardTypeDefault isPassWord:true];
+    
+    //添加登陆按钮
+    UIButton * loginBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 120, imageView.lcj_width, 36)];
+    [loginBtn setBackgroundImage:[UIImage imageNamed:@"login_register_button"] forState:UIControlStateNormal];
+    [loginBtn setBackgroundImage:[UIImage imageNamed:@"login_register_button_click"] forState:UIControlStateHighlighted];
+    [loginBtn setTitle:@"注册" forState:UIControlStateNormal];
+    loginBtn.center = CGPointMake(SCREEN_WIDTH/2, 138);
+    loginBtn.titleLabel.textColor = [UIColor whiteColor];
+    loginBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    loginBtn.layer.cornerRadius = 5;
+    loginBtn.layer.masksToBounds = YES;
     [view addSubview:loginBtn];
     
     [self.view addSubview:view];
@@ -186,10 +233,32 @@
     [view addSubview:button];
 }
 
+#pragma mark 点击切换显示注册或者登陆
+-(void)showLoginOrRegister:(UIButton *)button
+{
+    [self.view endEditing:YES];
+    [UIView animateWithDuration:0.3 animations:^{
+        if(self.loginView.lcj_x == 0){
+            [button setTitle:@"已有账号" forState:UIControlStateNormal];
+            self.loginView.lcj_x = -SCREEN_WIDTH;
+            self.registerView.lcj_x = 0;
+        }else{
+            [button setTitle:@"注册账号" forState:UIControlStateNormal];
+            self.loginView.lcj_x = 0;
+            self.registerView.lcj_x = SCREEN_WIDTH;
+        }
+    }];
+}
+
 #pragma mark 点击关闭登陆界面方法
 -(void)closeLoginBtn
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 
 @end
