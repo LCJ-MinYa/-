@@ -153,12 +153,12 @@
 		352382251F4D2D4C0035FF17 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				350BD7021F50118C006D23F1 /* Login */,
-				352382261F4D2D4C0035FF17 /* Attention */,
-				352382271F4D2D4C0035FF17 /* Cream */,
 				352382281F4D2D4C0035FF17 /* Main */,
-				352382291F4D2D4C0035FF17 /* Mine */,
+				352382271F4D2D4C0035FF17 /* Cream */,
 				3523822A1F4D2D4C0035FF17 /* New */,
+				352382261F4D2D4C0035FF17 /* Attention */,
+				352382291F4D2D4C0035FF17 /* Mine */,
+				350BD7021F50118C006D23F1 /* Login */,
 			);
 			path = Class;
 			sourceTree = "<group>";
