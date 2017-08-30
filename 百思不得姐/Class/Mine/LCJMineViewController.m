@@ -29,12 +29,7 @@
     //设置导航器相关
     [self setNav];
     
-    //设置tableview的相关参数
-    self.tableView.sectionHeaderHeight = 0;
-    self.tableView.sectionFooterHeight = 10;
-    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
-    
-    //tableview添加footerview
+    //tableview相关设置
     [self setFooterView];
     
 }
@@ -56,9 +51,15 @@
     self.navigationItem.rightBarButtonItems = @[settingItem, moonItem];
 }
 
-#pragma mark 设置tableView的footerView[UI]
+#pragma mark tableview相关设置[UI]
 -(void)setFooterView
 {
+    //设置tableview的相关参数
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = 10;
+    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
+    
+    //设置tableView的footerView
     UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 300)];
     footerView.backgroundColor = LCJRandomColor;
     self.tableView.tableFooterView = footerView;
@@ -102,7 +103,15 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%zd", indexPath.section];
+    if(indexPath.section == 0){
+        cell.textLabel.text = @"登陆／注册";
+        cell.imageView.image = [UIImage imageNamed:@"setup-head-default"];
+    }else{
+        cell.textLabel.text = @"离线下载";
+        //避免循环利用的问题
+        cell.imageView.image = nil;
+    }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
