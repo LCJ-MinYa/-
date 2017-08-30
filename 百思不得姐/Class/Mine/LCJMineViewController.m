@@ -34,6 +34,9 @@
     self.tableView.sectionFooterHeight = 10;
     self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
     
+    //tableview添加footerview
+    [self setFooterView];
+    
 }
 
 #pragma mark 设置导航器相关[UI]
@@ -53,6 +56,14 @@
     self.navigationItem.rightBarButtonItems = @[settingItem, moonItem];
 }
 
+#pragma mark 设置tableView的footerView[UI]
+-(void)setFooterView
+{
+    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 300)];
+    footerView.backgroundColor = LCJRandomColor;
+    self.tableView.tableFooterView = footerView;
+}
+
 #pragma mark 右侧设置按钮点击事件
 -(void)settingButtonClick
 {
@@ -70,7 +81,7 @@
 #pragma mark tableView数据源方法
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -99,7 +110,6 @@
 #pragma mark 设置cell高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 2) return 300;
     return 44;
 }
 
