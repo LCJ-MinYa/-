@@ -56,7 +56,7 @@
 #pragma mark 右侧设置按钮点击事件
 -(void)settingButtonClick
 {
-    LCJLog(@"点击设置按钮");
+    LCJLog(@"点击设置按钮.");
     LCJSettingViewController * setting = [[LCJSettingViewController alloc] init];
     [self.navigationController pushViewController:setting animated:YES];
 }
@@ -64,7 +64,7 @@
 #pragma mark 右侧moon按钮点击事件
 -(void)moonButtonClick
 {
-    LCJLog(@"点击moon按钮");
+    LCJLog(@"点击moon按钮.");
 }
 
 #pragma mark tableView数据源方法
