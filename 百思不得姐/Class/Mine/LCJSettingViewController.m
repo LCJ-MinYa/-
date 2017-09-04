@@ -20,7 +20,7 @@
     self.navigationItem.title = @"设置";
     //设置背景颜色
     self.view.backgroundColor = LCJCommonBgColor;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"自定义" style:UIBarButtonItemStyleDone target:nil action:nil];
+    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"自定义" style:UIBarButtonItemStyleDone target:nil action:nil];
 }
 
 @end
