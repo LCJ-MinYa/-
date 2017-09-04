@@ -9,6 +9,7 @@
 #import "LCJMineViewController.h"
 #import "LCJNavButtonItem.h"
 #import "LCJSettingViewController.h"
+#import "LCJAFHTTPClient.h"
 
 @interface LCJMineViewController ()
 
@@ -54,6 +55,7 @@
 #pragma mark tableview相关设置[UI]
 -(void)setFooterView
 {
+    
     //设置tableview的相关参数
     self.tableView.sectionHeaderHeight = 0;
     self.tableView.sectionFooterHeight = 10;

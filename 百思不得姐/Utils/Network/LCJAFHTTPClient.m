@@ -12,7 +12,28 @@
 
 @implementation LCJAFHTTPClient
 
+//Get请求
++ (void)GetService:(UIViewController *)view reqUrl:(NSString *)reqUrl params:(NSDictionary *)params success:(void(^)(id data))success fail:(void(^)())fail loadingText:(NSString *)loadingText showLoading:(BOOL)showLoading bizError:(BOOL)bizError
+{
+    [self sendReq:view reqUrl:reqUrl params:params success:^(id data) {
+        success(data);
+    } fail:^{
+        fail();
+    } loadingText:loadingText showLoading:showLoading bizError:bizError getOrpost:@"GET"];
+}
+
+//Post请求
 + (void)PostService:(UIViewController *)view reqUrl:(NSString *)reqUrl params:(NSDictionary *)params success:(void(^)(id data))success fail:(void(^)())fail loadingText:(NSString *)loadingText showLoading:(BOOL)showLoading bizError:(BOOL)bizError
+{
+    [self sendReq:view reqUrl:reqUrl params:params success:^(id data) {
+        success(data);
+    } fail:^{
+        fail();
+    } loadingText:loadingText showLoading:showLoading bizError:bizError getOrpost:@"POST"];
+}
+
+//发送请求
++(void)sendReq:(UIViewController *)view reqUrl:(NSString *)reqUrl params:(NSDictionary *)params success:(void(^)(id data))success fail:(void(^)())fail loadingText:(NSString *)loadingText showLoading:(BOOL)showLoading bizError:(BOOL)bizError getOrpost:(NSString *)getOrpost
 {
     MBProgressHUD * loading;
     //显示加载框
@@ -33,22 +54,39 @@
     if(params != nil){
         [newParams addEntriesFromDictionary:params];
     }
-    
-    [manager POST:url parameters:newParams progress:^(NSProgress * _Nonnull uploadProgress) {
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //关闭加载框
-        if(showLoading){
-            [self hideReqLoading:loading afterDelay:0];
-        }
-        NSDictionary * response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"%@", response);
-        success(response);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
-        if(fail){
-            fail();
-        }
-    }];
+    if([getOrpost isEqualToString:@"GET"]){
+        [manager GET:url parameters:newParams progress:^(NSProgress * _Nonnull uploadProgress) {
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            //关闭加载框
+            if(showLoading){
+                [self hideReqLoading:loading afterDelay:0];
+            }
+            NSDictionary * response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            NSLog(@"%@", response);
+            success(response);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+            if(fail){
+                fail();
+            }
+        }];
+    }else{
+        [manager POST:url parameters:newParams progress:^(NSProgress * _Nonnull uploadProgress) {
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            //关闭加载框
+            if(showLoading){
+                [self hideReqLoading:loading afterDelay:0];
+            }
+            NSDictionary * response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            NSLog(@"%@", response);
+            success(response);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@", error);
+            if(fail){
+                fail();
+            }
+        }];
+    }
 }
 
 //封装显示网络请求等待
