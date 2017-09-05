@@ -62,7 +62,6 @@
                 [self hideReqLoading:loading afterDelay:0];
             }
             NSDictionary * response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            NSLog(@"%@", response);
             success(response);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"%@", error);
@@ -78,7 +77,6 @@
                 [self hideReqLoading:loading afterDelay:0];
             }
             NSDictionary * response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            NSLog(@"%@", response);
             success(response);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"%@", error);

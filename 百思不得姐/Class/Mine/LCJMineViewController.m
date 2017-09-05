@@ -55,6 +55,14 @@
 #pragma mark tableview相关设置[UI]
 -(void)setFooterView
 {
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    [params setValue:@"square" forKey:@"a"];
+    [params setValue:@"topic" forKey:@"c"];
+    [LCJAFHTTPClient GetService:self reqUrl:@"/api/api_open.php" params:params success:^(id data) {
+        NSLog(@"%@", data);
+    } fail:^{
+        NSLog(@"请求失败");
+    } loadingText:nil showLoading:false bizError:false];
     
     //设置tableview的相关参数
     self.tableView.sectionHeaderHeight = 0;

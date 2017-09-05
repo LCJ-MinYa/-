@@ -19,11 +19,11 @@
 
 #ifdef DEBUG
 //debug状态下的测试api
-#define API_BASE_URL @"http://ydhapi.zhangyuxia.com.cn"
+#define API_BASE_URL @"http://api.budejie.com"
 
 #else
 //Release状态下的线上API
-#define API_BASE_URL @"http://ydhapi.zhangyuxia.com.cn"
+#define API_BASE_URL @"http://api.budejie.com"
 #endif
 
 //接口列表
