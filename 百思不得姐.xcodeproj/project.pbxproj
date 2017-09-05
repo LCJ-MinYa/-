@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0276C8C01F5D348A0052FBFB /* LCJAFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0276C8BF1F5D348A0052FBFB /* LCJAFHTTPClient.m */; };
+		02DA0E781F5EAC5D00060B54 /* LCJMineFooterContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DA0E771F5EAC5D00060B54 /* LCJMineFooterContent.m */; };
 		350BD6EB1F4E66B4006D23F1 /* LCJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */; };
 		350BD6F41F4E76BD006D23F1 /* UIView+LCJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6F31F4E76BD006D23F1 /* UIView+LCJExtend.m */; };
 		350BD6F81F4ECC37006D23F1 /* LCJNavButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6F71F4ECC37006D23F1 /* LCJNavButtonItem.m */; };
@@ -52,6 +53,8 @@
 /* Begin PBXFileReference section */
 		0276C8BE1F5D348A0052FBFB /* LCJAFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJAFHTTPClient.h; sourceTree = "<group>"; };
 		0276C8BF1F5D348A0052FBFB /* LCJAFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJAFHTTPClient.m; sourceTree = "<group>"; };
+		02DA0E761F5EAC5D00060B54 /* LCJMineFooterContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJMineFooterContent.h; sourceTree = "<group>"; };
+		02DA0E771F5EAC5D00060B54 /* LCJMineFooterContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJMineFooterContent.m; sourceTree = "<group>"; };
 		350BD6E91F4E66B4006D23F1 /* LCJTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJTabBar.h; sourceTree = "<group>"; };
 		350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJTabBar.m; sourceTree = "<group>"; };
 		350BD6F21F4E76BD006D23F1 /* UIView+LCJExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LCJExtend.h"; sourceTree = "<group>"; };
@@ -145,6 +148,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		02DA0E751F5EAC3900060B54 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				02DA0E761F5EAC5D00060B54 /* LCJMineFooterContent.h */,
+				02DA0E771F5EAC5D00060B54 /* LCJMineFooterContent.m */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		2412A6614FDE64AECB13BF45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +242,7 @@
 		352382291F4D2D4C0035FF17 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				02DA0E751F5EAC3900060B54 /* Modal */,
 				3523823D1F4D2F010035FF17 /* LCJMineViewController.h */,
 				3523823E1F4D2F010035FF17 /* LCJMineViewController.m */,
 				350BD6FF1F4EDF35006D23F1 /* LCJSettingViewController.h */,
@@ -529,6 +542,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				350BD6EB1F4E66B4006D23F1 /* LCJTabBar.m in Sources */,
+				02DA0E781F5EAC5D00060B54 /* LCJMineFooterContent.m in Sources */,
 				350BD7081F53B292006D23F1 /* LCJThirdPartyLoginBtn.m in Sources */,
 				350BD6F41F4E76BD006D23F1 /* UIView+LCJExtend.m in Sources */,
 				350BD6F81F4ECC37006D23F1 /* LCJNavButtonItem.m in Sources */,

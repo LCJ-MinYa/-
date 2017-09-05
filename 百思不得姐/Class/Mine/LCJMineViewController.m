@@ -10,6 +10,8 @@
 #import "LCJNavButtonItem.h"
 #import "LCJSettingViewController.h"
 #import "LCJAFHTTPClient.h"
+#import <MJExtension.h>
+#import "LCJMineFooterContent.h"
 
 @interface LCJMineViewController ()
 
@@ -55,26 +57,53 @@
 #pragma mark tableview相关设置[UI]
 -(void)setFooterView
 {
-    NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    [params setValue:@"square" forKey:@"a"];
-    [params setValue:@"topic" forKey:@"c"];
-    [LCJAFHTTPClient GetService:self reqUrl:@"/api/api_open.php" params:params success:^(id data) {
-        NSLog(@"%@", data);
-    } fail:^{
-        NSLog(@"请求失败");
-    } loadingText:nil showLoading:false bizError:false];
-    
     //设置tableview的相关参数
     self.tableView.sectionHeaderHeight = 0;
     self.tableView.sectionFooterHeight = 10;
     self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
     
     //设置tableView的footerView
-    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 300)];
+    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 2600)];
     footerView.backgroundColor = LCJRandomColor;
     self.tableView.tableFooterView = footerView;
+    
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    [params setValue:@"square" forKey:@"a"];
+    [params setValue:@"topic" forKey:@"c"];
+    [LCJAFHTTPClient GetService:self reqUrl:MINE_LIST params:params success:^(id data) {
+        NSArray * footerContent = [LCJMineFooterContent mj_objectArrayWithKeyValuesArray:data[@"square_list"]];
+        //创建对应的视图
+        [self creatFooterContent: footerContent];
+    } fail:^{
+        LCJLog(@"请求失败");
+    } loadingText:nil showLoading:false bizError:false];
 }
 
+#pragma mark 根据数据创建footerContent视图[UI]
+-(void)creatFooterContent:(NSArray *)data
+{
+    //方块个数
+    NSUInteger count = data.count;
+
+    //方块尺寸
+    int maxColsCount = 4; //一行最多4列
+    CGFloat buttonW = SCREEN_WIDTH / 4;
+    CGFloat buttonH = buttonW;
+    
+    for (NSUInteger i=0; i<count; i++) {
+        LCJMineFooterContent * item = data[i];
+        UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.tableView.tableFooterView addSubview:button];
+        
+        button.backgroundColor = LCJRandomColor;
+        button.lcj_width = buttonW;
+        button.lcj_height = buttonH;
+        button.lcj_x = (i % maxColsCount) * buttonW;
+        button.lcj_y = (i / maxColsCount) * buttonH;
+        [button setTitle:item.name forState:UIControlStateNormal];
+    }
+}
+     
 #pragma mark 右侧设置按钮点击事件
 -(void)settingButtonClick
 {

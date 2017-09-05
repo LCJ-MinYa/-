@@ -27,11 +27,6 @@
 #endif
 
 //接口列表
-#define GLOBAL_INFO @"/api/system/getGlobalInfo" //全局初始化请求
-#define LOGIN @"/api/user/login" //登录接口
-
-//商品相关接口
-#define BANNER_NOTICE @"/api/product/getBannerNotice" //商品首页banner和公告信息
-#define PRODUCT_LIST @"/api/product/getProductList" //商品列表
+#define MINE_LIST @"/api/api_open.php" //我的页面列表
 
 @end
