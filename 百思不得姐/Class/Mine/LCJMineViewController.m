@@ -12,6 +12,7 @@
 #import "LCJAFHTTPClient.h"
 #import <MJExtension.h>
 #import "LCJMineFooterContent.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface LCJMineViewController ()
 
@@ -63,7 +64,7 @@
     self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
     
     //设置tableView的footerView
-    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 2600)];
+    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 1200)];
     footerView.backgroundColor = LCJRandomColor;
     self.tableView.tableFooterView = footerView;
     
@@ -101,6 +102,9 @@
         button.lcj_x = (i % maxColsCount) * buttonW;
         button.lcj_y = (i / maxColsCount) * buttonH;
         [button setTitle:item.name forState:UIControlStateNormal];
+        [button.imageView sd_setImageWithURL:[NSURL URLWithString:item.icon] placeholderImage:[UIImage imageNamed:@"setup-head-default"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            [button setImage:image forState:UIControlStateNormal];
+        }];
     }
 }
      
