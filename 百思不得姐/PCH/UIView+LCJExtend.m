@@ -40,6 +40,16 @@
     return self.center.y;
 }
 
+-(CGFloat)lcj_bottomX
+{
+    return self.frame.origin.x + self.frame.size.width;
+}
+
+-(CGFloat)lcj_bottomY
+{
+    return self.frame.origin.y + self.frame.size.height;
+}
+
 -(void)setLcj_width:(CGFloat)lcj_width
 {
     CGRect frame = self.frame;
@@ -80,6 +90,20 @@
     CGPoint center = self.center;
     center.y = lcj_centerY;
     self.center = center;
+}
+
+-(void)setLcj_bottomX:(CGFloat)lcj_bottomX
+{
+    CGRect frame = self.frame;
+    frame.origin.x = lcj_bottomX - frame.size.width;
+    self.frame = frame;
+}
+
+-(void)setLcj_bottomY:(CGFloat)lcj_bottomY
+{
+    CGRect frame = self.frame;
+    frame.origin.y = lcj_bottomY - frame.size.height;
+    self.frame = frame;
 }
 
 @end

@@ -15,4 +15,6 @@
 @property (nonatomic, assign) CGFloat lcj_y;
 @property (nonatomic, assign) CGFloat lcj_centerX;
 @property (nonatomic, assign) CGFloat lcj_centerY;
+@property (nonatomic, assign) CGFloat lcj_bottomX;
+@property (nonatomic, assign) CGFloat lcj_bottomY;
 @end

@@ -57,6 +57,12 @@
             [button setImage:image forState:UIControlStateNormal];
         }];
         [button addTarget:self action:@selector(footerContentButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        //设置footer的高度为最后一个按钮的bottom(最大Y值)
+        self.lcj_height = self.subviews.lastObject.lcj_bottomY;
+        
+        UITableView * tableView = (UITableView *)self.superview;
+        tableView.tableFooterView = self;
     }
 }
 

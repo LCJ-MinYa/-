@@ -64,7 +64,7 @@
             NSDictionary * response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             success(response);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"%@", error);
+            LCJLog(@"%@", error);
             if(fail){
                 fail();
             }
@@ -79,7 +79,7 @@
             NSMutableDictionary * response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             success(response);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"%@", error);
+            LCJLog(@"%@", error);
             if(fail){
                 fail();
             }
