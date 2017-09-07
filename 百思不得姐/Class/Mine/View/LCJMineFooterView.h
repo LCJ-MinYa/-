@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LCJMineFooterView : UIView
-
+-(instancetype)initWithFrame:(CGRect)frame viewVc:(UIViewController *)viewVc;
 @end

@@ -7,15 +7,63 @@
 //
 
 #import "LCJMineFooterView.h"
+#import "LCJAFHTTPClient.h"
+#import "LCJMineFooterModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <MJExtension.h>
 
 @implementation LCJMineFooterView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(instancetype)initWithFrame:(CGRect)frame viewVc:(UIViewController *)viewVc
+{
+    if(self = [super initWithFrame:frame]){
+        NSMutableDictionary * params = [NSMutableDictionary dictionary];
+        [params setValue:@"square" forKey:@"a"];
+        [params setValue:@"topic" forKey:@"c"];
+        [LCJAFHTTPClient GetService:viewVc reqUrl:MINE_LIST params:params success:^(id data) {
+            NSArray * footerContent = [LCJMineFooterModel mj_objectArrayWithKeyValuesArray:data[@"square_list"]];
+            //创建对应的视图
+            [self creatFooterContent: footerContent];
+        } fail:^{
+            LCJLog(@"请求失败");
+        } loadingText:nil showLoading:false bizError:false];
+    }
+    return self;
 }
-*/
+
+#pragma mark 根据数据创建footerContent视图[UI]
+-(void)creatFooterContent:(NSArray *)data
+{
+    //方块个数
+    NSUInteger count = data.count;
+    
+    //方块尺寸
+    int maxColsCount = 4; //一行最多4列
+    CGFloat buttonW = SCREEN_WIDTH / 4;
+    CGFloat buttonH = buttonW;
+    
+    for (NSUInteger i=0; i<count; i++) {
+        LCJMineFooterModel * item = data[i];
+        UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self addSubview:button];
+        
+        button.backgroundColor = LCJRandomColor;
+        button.lcj_width = buttonW;
+        button.lcj_height = buttonH;
+        button.lcj_x = (i % maxColsCount) * buttonW;
+        button.lcj_y = (i / maxColsCount) * buttonH;
+        [button setTitle:item.name forState:UIControlStateNormal];
+        [button.imageView sd_setImageWithURL:[NSURL URLWithString:item.icon] placeholderImage:[UIImage imageNamed:@"setup-head-default"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            [button setImage:image forState:UIControlStateNormal];
+        }];
+        [button addTarget:self action:@selector(footerContentButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+#pragma mark footer内按钮点击事件
+-(void)footerContentButtonClick:(UIButton *)button
+{
+    LCJLog(@"click");
+}
 
 @end
