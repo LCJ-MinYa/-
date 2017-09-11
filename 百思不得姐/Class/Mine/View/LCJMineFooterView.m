@@ -11,6 +11,7 @@
 #import "LCJMineFooterModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJExtension.h>
+#import "LCJMineFooterListBtn.h"
 
 @implementation LCJMineFooterView
 
@@ -44,7 +45,7 @@
     
     for (NSUInteger i=0; i<count; i++) {
         LCJMineFooterModel * item = data[i];
-        UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        LCJMineFooterListBtn * button = [LCJMineFooterListBtn buttonWithType:UIButtonTypeCustom];
         [self addSubview:button];
         
         button.backgroundColor = LCJRandomColor;
@@ -67,7 +68,7 @@
 }
 
 #pragma mark footer内按钮点击事件
--(void)footerContentButtonClick:(UIButton *)button
+-(void)footerContentButtonClick:(LCJMineFooterListBtn *)button
 {
     LCJLog(@"click");
 }
