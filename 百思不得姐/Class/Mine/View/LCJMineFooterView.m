@@ -48,8 +48,13 @@
         LCJMineFooterListBtn * button = [LCJMineFooterListBtn buttonWithType:UIButtonTypeCustom];
         [self addSubview:button];
         
-        button.lcj_width = buttonW;
-        button.lcj_height = buttonH;
+        button.backgroundColor = [UIColor whiteColor];
+        if(i % maxColsCount == 3){
+            button.lcj_width = buttonW;
+        }else{
+            button.lcj_width = buttonW - 1;
+        }
+        button.lcj_height = buttonH - 1;
         button.lcj_x = (i % maxColsCount) * buttonW;
         button.lcj_y = (i / maxColsCount) * buttonH;
         [button setTitle:item.name forState:UIControlStateNormal];
@@ -61,7 +66,6 @@
     
     //设置footer的高度为最后一个按钮的bottom(最大Y值)
     self.lcj_height = self.subviews.lastObject.lcj_bottomY;
-    self.backgroundColor = [UIColor whiteColor];
     
     UITableView * tableView = (UITableView *)self.superview;
     tableView.contentSize = CGSizeMake(0, self.lcj_bottomY);
