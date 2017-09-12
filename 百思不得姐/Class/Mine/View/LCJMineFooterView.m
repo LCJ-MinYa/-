@@ -12,6 +12,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJExtension.h>
 #import "LCJMineFooterListBtn.h"
+#import "LCJMineWebViewController.h"
 
 @implementation LCJMineFooterView
 
@@ -46,9 +47,8 @@
     for (NSUInteger i=0; i<count; i++) {
         LCJMineFooterModel * item = data[i];
         LCJMineFooterListBtn * button = [LCJMineFooterListBtn buttonWithType:UIButtonTypeCustom];
-        [self addSubview:button];
-        
         button.backgroundColor = [UIColor whiteColor];
+        
         if(i % maxColsCount == 3){
             button.lcj_width = buttonW;
         }else{
@@ -61,20 +61,35 @@
         [button.imageView sd_setImageWithURL:[NSURL URLWithString:item.icon] placeholderImage:[UIImage imageNamed:@"setup-head-default"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             [button setImage:image forState:UIControlStateNormal];
         }];
+        objc_setAssociatedObject(button, "url", item.url, OBJC_ASSOCIATION_COPY_NONATOMIC);
         [button addTarget:self action:@selector(footerContentButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:button];
     }
     
     //设置footer的高度为最后一个按钮的bottom(最大Y值)
     self.lcj_height = self.subviews.lastObject.lcj_bottomY;
     
     UITableView * tableView = (UITableView *)self.superview;
-    tableView.contentSize = CGSizeMake(0, self.lcj_bottomY);
+    tableView.tableFooterView = self;
+    [tableView reloadData]; //重新刷新数据，重新计算contentSize（延迟会默认加上20）
+    //tableView.contentSize = CGSizeMake(0, self.lcj_bottomY); 该方法会在返回等二次呈现出现问题，即还是默认0高度
 }
 
 #pragma mark footer内按钮点击事件
 -(void)footerContentButtonClick:(LCJMineFooterListBtn *)button
 {
-    LCJLog(@"click");
+    NSString * url = objc_getAssociatedObject(button, "url");
+    if([url hasPrefix:@"http"]){
+        LCJLog(@"webview");
+        LCJMineWebViewController * webView = [[LCJMineWebViewController alloc] init];
+        webView.url = url;
+        webView.name = button.currentTitle;
+        UITabBarController * tabBarVc = (UITabBarController *)self.window.rootViewController;
+        UINavigationController * nav = tabBarVc.selectedViewController;
+        [nav pushViewController:webView animated:YES];
+    }else{
+        LCJLog(@"mod");
+    }
 }
 
 @end

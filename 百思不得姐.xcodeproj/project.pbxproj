@@ -12,6 +12,7 @@
 		0234E4EE1F60E0E7006F803E /* LCJMineFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0234E4ED1F60E0E7006F803E /* LCJMineFooterView.m */; };
 		0234E4F51F60E2F3006F803E /* LCJMineFooterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0234E4F41F60E2F3006F803E /* LCJMineFooterModel.m */; };
 		0237DB471F668A8D005FF7AA /* LCJMineFooterListBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 0237DB461F668A8D005FF7AA /* LCJMineFooterListBtn.m */; };
+		024D71611F67855F00430DA4 /* LCJMineWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 024D71601F67855F00430DA4 /* LCJMineWebViewController.m */; };
 		0276C8C01F5D348A0052FBFB /* LCJAFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0276C8BF1F5D348A0052FBFB /* LCJAFHTTPClient.m */; };
 		350BD6EB1F4E66B4006D23F1 /* LCJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */; };
 		350BD6F41F4E76BD006D23F1 /* UIView+LCJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6F31F4E76BD006D23F1 /* UIView+LCJExtend.m */; };
@@ -63,6 +64,8 @@
 		0234E4F41F60E2F3006F803E /* LCJMineFooterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJMineFooterModel.m; sourceTree = "<group>"; };
 		0237DB451F668A8D005FF7AA /* LCJMineFooterListBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJMineFooterListBtn.h; sourceTree = "<group>"; };
 		0237DB461F668A8D005FF7AA /* LCJMineFooterListBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJMineFooterListBtn.m; sourceTree = "<group>"; };
+		024D715F1F67855F00430DA4 /* LCJMineWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJMineWebViewController.h; sourceTree = "<group>"; };
+		024D71601F67855F00430DA4 /* LCJMineWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJMineWebViewController.m; sourceTree = "<group>"; };
 		0276C8BE1F5D348A0052FBFB /* LCJAFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJAFHTTPClient.h; sourceTree = "<group>"; };
 		0276C8BF1F5D348A0052FBFB /* LCJAFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJAFHTTPClient.m; sourceTree = "<group>"; };
 		350BD6E91F4E66B4006D23F1 /* LCJTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJTabBar.h; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				0234E4E61F60E09C006F803E /* LCJMineViewController.m */,
 				0234E4E71F60E09C006F803E /* LCJSettingViewController.h */,
 				0234E4E81F60E09C006F803E /* LCJSettingViewController.m */,
+				024D715F1F67855F00430DA4 /* LCJMineWebViewController.h */,
+				024D71601F67855F00430DA4 /* LCJMineWebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -583,6 +588,7 @@
 				352382231F4D295B0035FF17 /* AppDelegate.m in Sources */,
 				3523824A1F4D679E0035FF17 /* LCJDimensConfig.m in Sources */,
 				3523822D1F4D2D930035FF17 /* LCJTabBarController.m in Sources */,
+				024D71611F67855F00430DA4 /* LCJMineWebViewController.m in Sources */,
 				0234E4EE1F60E0E7006F803E /* LCJMineFooterView.m in Sources */,
 				352382391F4D2EDE0035FF17 /* LCJNewViewController.m in Sources */,
 				350BD6FE1F4ED9E0006D23F1 /* LCJNavigationController.m in Sources */,
