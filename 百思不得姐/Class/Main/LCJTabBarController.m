@@ -53,7 +53,7 @@
     LCJNavigationController * mine = [[LCJNavigationController alloc] initWithRootViewController:[[LCJMineViewController alloc] init]];
     [self creatNav:mine image:[UIImage imageNamed:@"tabBar_me_icon"] selectImage:[UIImage imageNamed:@"tabBar_me_click_icon"] title:@"我"];
     
-    [UITabBar appearance].barTintColor = LCJColor(255, 255, 255);
+//    [UITabBar appearance].barTintColor = LCJColorAlpha(255, 255, 255, 0.6);
     
     //更换UITabBarController内部的TabBar(KVC)
     [self setValue:[[LCJTabBar alloc] init] forKeyPath:@"tabBar"];

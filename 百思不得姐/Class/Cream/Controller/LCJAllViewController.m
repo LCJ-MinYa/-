@@ -34,7 +34,7 @@
     //3.如果为空就手动创建
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-        cell.backgroundColor = self.view.backgroundColor;
+        cell.backgroundColor = LCJRandomColor;//self.view.backgroundColor;
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%zd", indexPath.row];
     return cell;

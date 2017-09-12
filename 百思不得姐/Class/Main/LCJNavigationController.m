@@ -25,7 +25,7 @@
     self.interactivePopGestureRecognizer.delegate = self;
     
     //设置导航控制器的背景图片
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
 }
 
 #pragma mark 重写push方法，里面设置返回键

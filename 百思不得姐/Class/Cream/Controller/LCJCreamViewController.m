@@ -74,19 +74,25 @@
 #pragma mark 设置ScrollView[UI]
 -(void)setScrollView
 {
+    //不允许自动调整scrollView的内边距
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     UIScrollView * scrollView = [[UIScrollView alloc] init];
-    scrollView.backgroundColor = LCJRandomColor;
+    scrollView.backgroundColor = LCJCommonBgColor;
     scrollView.frame = self.view.bounds;
     scrollView.pagingEnabled = YES;
+    scrollView.showsHorizontalScrollIndicator = false;
     [self.view addSubview:scrollView];
     
     //添加所以子控制器的view到scrollView中
     NSUInteger count = self.childViewControllers.count;
     for (NSUInteger i=0; i<count; i++) {
-        UIView * childView = self.childViewControllers[i].view;
+        UITableView * childView = (UITableView *)self.childViewControllers[i].view;
         childView.backgroundColor = LCJRandomColor;
-        childView.frame = CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        childView.frame = CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, scrollView.lcj_height);
         [scrollView addSubview:childView];
+        
+        childView.contentInset = UIEdgeInsetsMake(64 + 40, 0, 49, 0);
     }
     scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * count, 0);
 }
