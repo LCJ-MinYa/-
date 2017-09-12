@@ -15,6 +15,11 @@
 		024D71611F67855F00430DA4 /* LCJMineWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 024D71601F67855F00430DA4 /* LCJMineWebViewController.m */; };
 		0276C8C01F5D348A0052FBFB /* LCJAFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0276C8BF1F5D348A0052FBFB /* LCJAFHTTPClient.m */; };
 		02D9F0C31F67D4BA00C20D3D /* LCJCreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0C21F67D4BA00C20D3D /* LCJCreamViewController.m */; };
+		02D9F0C61F67D54800C20D3D /* LCJAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0C51F67D54800C20D3D /* LCJAllViewController.m */; };
+		02D9F0C91F67D56E00C20D3D /* LCJVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0C81F67D56E00C20D3D /* LCJVideoViewController.m */; };
+		02D9F0CC1F67D58A00C20D3D /* LCJVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0CB1F67D58A00C20D3D /* LCJVoiceViewController.m */; };
+		02D9F0CF1F67D59800C20D3D /* LCJImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0CE1F67D59800C20D3D /* LCJImgViewController.m */; };
+		02D9F0D21F67D5AA00C20D3D /* LCJTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0D11F67D5AA00C20D3D /* LCJTextViewController.m */; };
 		350BD6EB1F4E66B4006D23F1 /* LCJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */; };
 		350BD6F41F4E76BD006D23F1 /* UIView+LCJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6F31F4E76BD006D23F1 /* UIView+LCJExtend.m */; };
 		350BD6F81F4ECC37006D23F1 /* LCJNavButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6F71F4ECC37006D23F1 /* LCJNavButtonItem.m */; };
@@ -70,6 +75,16 @@
 		0276C8BF1F5D348A0052FBFB /* LCJAFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJAFHTTPClient.m; sourceTree = "<group>"; };
 		02D9F0C11F67D4BA00C20D3D /* LCJCreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJCreamViewController.h; sourceTree = "<group>"; };
 		02D9F0C21F67D4BA00C20D3D /* LCJCreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJCreamViewController.m; sourceTree = "<group>"; };
+		02D9F0C41F67D54800C20D3D /* LCJAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJAllViewController.h; sourceTree = "<group>"; };
+		02D9F0C51F67D54800C20D3D /* LCJAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJAllViewController.m; sourceTree = "<group>"; };
+		02D9F0C71F67D56E00C20D3D /* LCJVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJVideoViewController.h; sourceTree = "<group>"; };
+		02D9F0C81F67D56E00C20D3D /* LCJVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJVideoViewController.m; sourceTree = "<group>"; };
+		02D9F0CA1F67D58A00C20D3D /* LCJVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJVoiceViewController.h; sourceTree = "<group>"; };
+		02D9F0CB1F67D58A00C20D3D /* LCJVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJVoiceViewController.m; sourceTree = "<group>"; };
+		02D9F0CD1F67D59800C20D3D /* LCJImgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJImgViewController.h; sourceTree = "<group>"; };
+		02D9F0CE1F67D59800C20D3D /* LCJImgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJImgViewController.m; sourceTree = "<group>"; };
+		02D9F0D01F67D5AA00C20D3D /* LCJTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJTextViewController.h; sourceTree = "<group>"; };
+		02D9F0D11F67D5AA00C20D3D /* LCJTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJTextViewController.m; sourceTree = "<group>"; };
 		350BD6E91F4E66B4006D23F1 /* LCJTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJTabBar.h; sourceTree = "<group>"; };
 		350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJTabBar.m; sourceTree = "<group>"; };
 		350BD6F21F4E76BD006D23F1 /* UIView+LCJExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LCJExtend.h"; sourceTree = "<group>"; };
@@ -209,6 +224,16 @@
 			children = (
 				02D9F0C11F67D4BA00C20D3D /* LCJCreamViewController.h */,
 				02D9F0C21F67D4BA00C20D3D /* LCJCreamViewController.m */,
+				02D9F0C41F67D54800C20D3D /* LCJAllViewController.h */,
+				02D9F0C51F67D54800C20D3D /* LCJAllViewController.m */,
+				02D9F0C71F67D56E00C20D3D /* LCJVideoViewController.h */,
+				02D9F0C81F67D56E00C20D3D /* LCJVideoViewController.m */,
+				02D9F0CA1F67D58A00C20D3D /* LCJVoiceViewController.h */,
+				02D9F0CB1F67D58A00C20D3D /* LCJVoiceViewController.m */,
+				02D9F0CD1F67D59800C20D3D /* LCJImgViewController.h */,
+				02D9F0CE1F67D59800C20D3D /* LCJImgViewController.m */,
+				02D9F0D01F67D5AA00C20D3D /* LCJTextViewController.h */,
+				02D9F0D11F67D5AA00C20D3D /* LCJTextViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -601,6 +626,7 @@
 				0237DB471F668A8D005FF7AA /* LCJMineFooterListBtn.m in Sources */,
 				350BD6F41F4E76BD006D23F1 /* UIView+LCJExtend.m in Sources */,
 				0234E4F51F60E2F3006F803E /* LCJMineFooterModel.m in Sources */,
+				02D9F0C91F67D56E00C20D3D /* LCJVideoViewController.m in Sources */,
 				350BD6F81F4ECC37006D23F1 /* LCJNavButtonItem.m in Sources */,
 				352382441F4D67240035FF17 /* LCJAPIConfig.m in Sources */,
 				0234E4EA1F60E09C006F803E /* LCJMineViewController.m in Sources */,
@@ -608,13 +634,17 @@
 				352382471F4D67630035FF17 /* LCJColor.m in Sources */,
 				3523824D1F4D67B10035FF17 /* LCJCommonConfig.m in Sources */,
 				3523823C1F4D2EF70035FF17 /* LCJAttentionViewController.m in Sources */,
+				02D9F0CC1F67D58A00C20D3D /* LCJVoiceViewController.m in Sources */,
 				02D9F0C31F67D4BA00C20D3D /* LCJCreamViewController.m in Sources */,
 				352382231F4D295B0035FF17 /* AppDelegate.m in Sources */,
 				3523824A1F4D679E0035FF17 /* LCJDimensConfig.m in Sources */,
 				3523822D1F4D2D930035FF17 /* LCJTabBarController.m in Sources */,
 				024D71611F67855F00430DA4 /* LCJMineWebViewController.m in Sources */,
 				0234E4EE1F60E0E7006F803E /* LCJMineFooterView.m in Sources */,
+				02D9F0C61F67D54800C20D3D /* LCJAllViewController.m in Sources */,
+				02D9F0CF1F67D59800C20D3D /* LCJImgViewController.m in Sources */,
 				352382391F4D2EDE0035FF17 /* LCJNewViewController.m in Sources */,
+				02D9F0D21F67D5AA00C20D3D /* LCJTextViewController.m in Sources */,
 				350BD6FE1F4ED9E0006D23F1 /* LCJNavigationController.m in Sources */,
 				0276C8C01F5D348A0052FBFB /* LCJAFHTTPClient.m in Sources */,
 				350BD7051F5011AB006D23F1 /* LCJLoginViewController.m in Sources */,

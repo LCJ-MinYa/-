@@ -8,6 +8,11 @@
 
 #import "LCJCreamViewController.h"
 #import "LCJNavButtonItem.h"
+#import "LCJAllViewController.h"
+#import "LCJVideoViewController.h"
+#import "LCJVoiceViewController.h"
+#import "LCJImgViewController.h"
+#import "LCJTextViewController.h"
 
 @interface LCJCreamViewController ()
 
@@ -27,6 +32,9 @@
     
     //设置导航器相关
     [self setNav];
+    
+    //添加分类
+    [self setChildViewControllers];
     
     //设置scrollView
     [self setScrollView];
@@ -48,13 +56,39 @@
     self.navigationItem.leftBarButtonItems = @[leftButton];
 }
 
+#pragma mark 设置分类视图[UI]
+-(void)setChildViewControllers
+{
+    LCJAllViewController * all = [[LCJAllViewController alloc] init];
+    [self addChildViewController:all];
+    LCJVideoViewController * video = [[LCJVideoViewController alloc] init];
+    [self addChildViewController:video];
+    LCJVoiceViewController * voice = [[LCJVoiceViewController alloc] init];
+    [self addChildViewController:voice];
+    LCJImgViewController * img = [[LCJImgViewController alloc] init];
+    [self addChildViewController:img];
+    LCJTextViewController * text = [[LCJTextViewController alloc] init];
+    [self addChildViewController:text];
+}
+
 #pragma mark 设置ScrollView[UI]
 -(void)setScrollView
 {
     UIScrollView * scrollView = [[UIScrollView alloc] init];
     scrollView.backgroundColor = LCJRandomColor;
     scrollView.frame = self.view.bounds;
+    scrollView.pagingEnabled = YES;
     [self.view addSubview:scrollView];
+    
+    //添加所以子控制器的view到scrollView中
+    NSUInteger count = self.childViewControllers.count;
+    for (NSUInteger i=0; i<count; i++) {
+        UIView * childView = self.childViewControllers[i].view;
+        childView.backgroundColor = LCJRandomColor;
+        childView.frame = CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        [scrollView addSubview:childView];
+    }
+    scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * count, 0);
 }
 
 #pragma mark 设置titleView[UI]
