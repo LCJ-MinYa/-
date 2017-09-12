@@ -11,6 +11,12 @@
 
 @interface LCJCreamViewController ()
 
+//当前选中的按钮
+@property (nonatomic, weak) UIButton * selectedTitleButton;
+
+//标题按钮指示器
+@property (nonatomic, weak) UIView * indicatorView;
+
 @end
 
 @implementation LCJCreamViewController
@@ -54,7 +60,7 @@
 #pragma mark 设置titleView[UI]
 -(void)setTitleView
 {
-    UIView * titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 35)];
+    UIView * titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 40)];
     titleView.backgroundColor = LCJColorAlpha(255, 255, 255, 0.6);
     [self.view addSubview:titleView];
     
@@ -68,16 +74,45 @@
         [button setTitle:titles[i] forState:UIControlStateNormal];
         button.frame = CGRectMake(i * titleButtonW, 0, titleButtonW, titleButtonH);
         button.titleLabel.font = [UIFont systemFontOfSize:14];
+        //设置按钮颜色
         [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
+        
         [button addTarget:self action:@selector(titleBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [titleView addSubview:button];
     }
+    
+    //按钮选中颜色
+    UIButton * firstButton = titleView.subviews.firstObject;
+    
+    //底部指示器
+    UIView * indicatorView = [[UIView alloc] init];
+    indicatorView.backgroundColor = [firstButton titleColorForState:UIControlStateDisabled];
+    indicatorView.lcj_height = 1;
+    indicatorView.lcj_y = titleView.lcj_height - 1;
+    [titleView addSubview:indicatorView];
+    self.indicatorView = indicatorView;
+    
+    //默认选中第一个
+    [firstButton.titleLabel sizeToFit]; //让第一个选中的文字提前计算好
+    [self titleBtnClick:firstButton];
 }
 
 #pragma mark 标题按钮点击事件
 -(void)titleBtnClick:(UIButton *)button
 {
     LCJLog(@"点击标题按钮");
+    self.selectedTitleButton.enabled = YES;
+    button.enabled = NO;
+    self.selectedTitleButton = button;
+    
+    //添加指示器
+    [UIView animateWithDuration:0.25 animations:^{
+        //self.indicatorView.lcj_width = button.lcj_width;
+        CGFloat titleW = [button.currentTitle sizeWithAttributes:@{NSFontAttributeName:button.titleLabel.font}].width;
+        self.indicatorView.lcj_width = titleW;
+        self.indicatorView.lcj_centerX = button.lcj_centerX;
+    }];
 }
 
 #pragma mark 左侧按钮点击事件
