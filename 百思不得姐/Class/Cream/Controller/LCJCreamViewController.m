@@ -87,7 +87,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     UIScrollView * scrollView = [[UIScrollView alloc] init];
-    scrollView.backgroundColor = LCJCommonBgColor;
+    scrollView.backgroundColor = LCJColor(255, 255, 255);
     scrollView.frame = self.view.bounds;
     scrollView.pagingEnabled = YES;
     scrollView.showsHorizontalScrollIndicator = false;
@@ -179,9 +179,10 @@
     
     //取出子控制器
     UITableView * childVc = (UITableView *)self.childViewControllers[index].view;
+    //如果已经创建就返回
+    if(childVc.superview) return;
     childVc.frame = CGRectMake(index * self.scrollView.lcj_width, 0, self.scrollView.lcj_width, self.scrollView.lcj_height);
     [self.scrollView addSubview:childVc];
-    //childVc.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
 }
 
 #pragma mark - <UIScrollViewDelegate>
