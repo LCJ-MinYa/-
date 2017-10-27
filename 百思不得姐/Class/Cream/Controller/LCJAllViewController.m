@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 }
 
 #pragma mark - Table view data source
@@ -34,7 +37,7 @@
     //3.如果为空就手动创建
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-        cell.backgroundColor = LCJRandomColor;//self.view.backgroundColor;
+        cell.backgroundColor = self.view.backgroundColor;
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%zd", indexPath.row];
     return cell;

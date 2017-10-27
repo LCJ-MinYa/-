@@ -14,13 +14,19 @@
 #import "LCJImgViewController.h"
 #import "LCJTextViewController.h"
 
-@interface LCJCreamViewController ()
+@interface LCJCreamViewController () <UIScrollViewDelegate>
 
 //当前选中的按钮
 @property (nonatomic, weak) UIButton * selectedTitleButton;
 
 //标题按钮指示器
 @property (nonatomic, weak) UIView * indicatorView;
+
+//UIScrollView
+@property (nonatomic, weak) UIScrollView * scrollView;
+
+//标题栏
+@property (nonatomic, weak) UIView * titlesView;
 
 @end
 
@@ -41,6 +47,9 @@
     
     //设置titleView
     [self setTitleView];
+    
+    //默认添加子控制器的view
+    [self addChildVcView];
 }
 
 #pragma mark 设置导航器相关[UI]
@@ -82,27 +91,23 @@
     scrollView.frame = self.view.bounds;
     scrollView.pagingEnabled = YES;
     scrollView.showsHorizontalScrollIndicator = false;
-    [self.view addSubview:scrollView];
+    scrollView.delegate = self;
     
     //添加所以子控制器的view到scrollView中
     NSUInteger count = self.childViewControllers.count;
-    for (NSUInteger i=0; i<count; i++) {
-        UITableView * childView = (UITableView *)self.childViewControllers[i].view;
-        childView.backgroundColor = LCJRandomColor;
-        childView.frame = CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, scrollView.lcj_height);
-        [scrollView addSubview:childView];
-        
-        childView.contentInset = UIEdgeInsetsMake(64 + 40, 0, 49, 0);
-    }
     scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * count, 0);
+    
+    [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
 }
 
 #pragma mark 设置titleView[UI]
 -(void)setTitleView
 {
     UIView * titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 40)];
-    titleView.backgroundColor = LCJColorAlpha(255, 255, 255, 0.6);
+    titleView.backgroundColor = LCJColorAlpha(255, 255, 255, 0.7);
     [self.view addSubview:titleView];
+    self.titlesView = titleView;
     
     //添加标题
     NSArray * titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
@@ -111,6 +116,7 @@
     CGFloat titleButtonH = titleView.lcj_height;
     for (NSUInteger i=0; i<count; i++) {
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.tag = i;
         [button setTitle:titles[i] forState:UIControlStateNormal];
         button.frame = CGRectMake(i * titleButtonW, 0, titleButtonW, titleButtonH);
         button.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -146,19 +152,52 @@
     button.enabled = NO;
     self.selectedTitleButton = button;
     
-    //添加指示器
+    //移动指示器
     [UIView animateWithDuration:0.25 animations:^{
-        //self.indicatorView.lcj_width = button.lcj_width;
         CGFloat titleW = [button.currentTitle sizeWithAttributes:@{NSFontAttributeName:button.titleLabel.font}].width;
         self.indicatorView.lcj_width = titleW;
         self.indicatorView.lcj_centerX = button.lcj_centerX;
     }];
+    
+    //让UIScrollView滚动到对应位置
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.x = button.tag * self.scrollView.lcj_width;
+    [self.scrollView setContentOffset:offset animated:YES];
 }
 
 #pragma mark 左侧按钮点击事件
 -(void)leftButtonClick
 {
     LCJLog(@"点击左侧按钮");
+}
+
+#pragma mark - 添加子控制器的View
+-(void)addChildVcView
+{
+    //子控制器索引
+    NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.lcj_width;
+    
+    //取出子控制器
+    UITableView * childVc = (UITableView *)self.childViewControllers[index].view;
+    childVc.frame = CGRectMake(index * self.scrollView.lcj_width, 0, self.scrollView.lcj_width, self.scrollView.lcj_height);
+    [self.scrollView addSubview:childVc];
+    //childVc.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
+}
+
+#pragma mark - <UIScrollViewDelegate>
+-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    [self addChildVcView];
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    //子控制器索引
+    NSUInteger index = scrollView.contentOffset.x / scrollView.lcj_width;
+    UIButton * titleButton = self.titlesView.subviews[index];
+    [self titleBtnClick:titleButton];
+    
+    [self addChildVcView];
 }
 
 @end

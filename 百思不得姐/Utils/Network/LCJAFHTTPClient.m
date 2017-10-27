@@ -13,7 +13,7 @@
 @implementation LCJAFHTTPClient
 
 //Get请求
-+ (void)GetService:(UIViewController *)view reqUrl:(NSString *)reqUrl params:(NSDictionary *)params success:(void(^)(id data))success fail:(void(^)())fail loadingText:(NSString *)loadingText showLoading:(BOOL)showLoading bizError:(BOOL)bizError
++ (void)GetService:(UIViewController *)view reqUrl:(NSString *)reqUrl params:(NSDictionary *)params success:(void(^)(id data))success fail:(void(^)(void))fail loadingText:(NSString *)loadingText showLoading:(BOOL)showLoading bizError:(BOOL)bizError
 {
     [self sendReq:view reqUrl:reqUrl params:params success:^(id data) {
         success(data);
@@ -23,7 +23,7 @@
 }
 
 //Post请求
-+ (void)PostService:(UIViewController *)view reqUrl:(NSString *)reqUrl params:(NSDictionary *)params success:(void(^)(id data))success fail:(void(^)())fail loadingText:(NSString *)loadingText showLoading:(BOOL)showLoading bizError:(BOOL)bizError
++ (void)PostService:(UIViewController *)view reqUrl:(NSString *)reqUrl params:(NSDictionary *)params success:(void(^)(id data))success fail:(void(^)(void))fail loadingText:(NSString *)loadingText showLoading:(BOOL)showLoading bizError:(BOOL)bizError
 {
     [self sendReq:view reqUrl:reqUrl params:params success:^(id data) {
         success(data);
@@ -33,7 +33,7 @@
 }
 
 //发送请求
-+(void)sendReq:(UIViewController *)view reqUrl:(NSString *)reqUrl params:(NSDictionary *)params success:(void(^)(id data))success fail:(void(^)())fail loadingText:(NSString *)loadingText showLoading:(BOOL)showLoading bizError:(BOOL)bizError getOrpost:(NSString *)getOrpost
++(void)sendReq:(UIViewController *)view reqUrl:(NSString *)reqUrl params:(NSDictionary *)params success:(void(^)(id data))success fail:(void(^)(void))fail loadingText:(NSString *)loadingText showLoading:(BOOL)showLoading bizError:(BOOL)bizError getOrpost:(NSString *)getOrpost
 {
     MBProgressHUD * loading;
     //显示加载框
