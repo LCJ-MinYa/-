@@ -28,5 +28,6 @@
 
 //接口列表
 #define MINE_LIST @"/api/api_open.php" //我的页面列表
+#define CREAM_ALL @"/api/api_open.php" //精华全部数据
 
 @end

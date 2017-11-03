@@ -7,6 +7,7 @@
 //
 
 #import "LCJAllViewController.h"
+#import "LCJAFHTTPClient.h"
 
 @interface LCJAllViewController ()
 
@@ -16,9 +17,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadAllData];
     
     self.tableView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+}
+
+#pragma mark - 请求全部数据
+-(void)loadAllData
+{
+    LCJLog(@"%f", self.view.frame.size.height);
+    LCJLog(@"%f", SCREEN_HEIGHT);
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    [params setValue:@"list" forKey:@"a"];
+    [params setValue:@"data" forKey:@"c"];
+    [LCJAFHTTPClient GetService:self reqUrl:CREAM_ALL params:params success:^(id data) {
+//        LCJLog(@"%@", data);
+    } fail:^{
+        LCJLog(@"请求失败");
+    } loadingText:nil showLoading:true bizError:false];
 }
 
 #pragma mark - Table view data source

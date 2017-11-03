@@ -57,12 +57,15 @@
     if([getOrpost isEqualToString:@"GET"]){
         [manager GET:url parameters:newParams progress:^(NSProgress * _Nonnull uploadProgress) {
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            //关闭加载框
-            if(showLoading){
-                [self hideReqLoading:loading afterDelay:0];
-            }
-            NSDictionary * response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            success(response);
+            //延时执行
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                //关闭加载框
+                if(showLoading){
+                    [self hideReqLoading:loading afterDelay:0];
+                }
+                NSDictionary * response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+                success(response);
+            });
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             LCJLog(@"%@", error);
             if(fail){
@@ -72,12 +75,15 @@
     }else{
         [manager POST:url parameters:newParams progress:^(NSProgress * _Nonnull uploadProgress) {
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            //关闭加载框
-            if(showLoading){
-                [self hideReqLoading:loading afterDelay:0];
-            }
-            NSMutableDictionary * response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            success(response);
+            //延时执行
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                //关闭加载框
+                if(showLoading){
+                    [self hideReqLoading:loading afterDelay:0];
+                }
+                NSMutableDictionary * response = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+                success(response);
+            });
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             LCJLog(@"%@", error);
             if(fail){
@@ -90,7 +96,9 @@
 //封装显示网络请求等待
 + (MBProgressHUD *)showReqLoading:(UIViewController *)view loadingText:(NSString *)loadingText onlyShowText:(BOOL)onlyShowText
 {
-    MBProgressHUD * loading = [MBProgressHUD showHUDAddedTo:view.view animated:YES];
+    UIWindow * window = [UIApplication sharedApplication].keyWindow;
+    
+    MBProgressHUD * loading = [MBProgressHUD showHUDAddedTo:window animated:YES];
     if(onlyShowText){
         loading.mode = MBProgressHUDModeText;
     }else{

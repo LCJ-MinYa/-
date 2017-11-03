@@ -28,7 +28,7 @@
             [self creatFooterContent: footerContent];
         } fail:^{
             LCJLog(@"请求失败");
-        } loadingText:nil showLoading:false bizError:false];
+        } loadingText:nil showLoading:true bizError:false];
     }
     return self;
 }
