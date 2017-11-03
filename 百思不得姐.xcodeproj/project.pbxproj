@@ -20,6 +20,7 @@
 		02D9F0CC1F67D58A00C20D3D /* LCJVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0CB1F67D58A00C20D3D /* LCJVoiceViewController.m */; };
 		02D9F0CF1F67D59800C20D3D /* LCJImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0CE1F67D59800C20D3D /* LCJImgViewController.m */; };
 		02D9F0D21F67D5AA00C20D3D /* LCJTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0D11F67D5AA00C20D3D /* LCJTextViewController.m */; };
+		02F33B0D1FAC6184009B18C7 /* LCJCreamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F33B0C1FAC6184009B18C7 /* LCJCreamModel.m */; };
 		350BD6EB1F4E66B4006D23F1 /* LCJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */; };
 		350BD6F41F4E76BD006D23F1 /* UIView+LCJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6F31F4E76BD006D23F1 /* UIView+LCJExtend.m */; };
 		350BD6F81F4ECC37006D23F1 /* LCJNavButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6F71F4ECC37006D23F1 /* LCJNavButtonItem.m */; };
@@ -85,6 +86,8 @@
 		02D9F0CE1F67D59800C20D3D /* LCJImgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJImgViewController.m; sourceTree = "<group>"; };
 		02D9F0D01F67D5AA00C20D3D /* LCJTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJTextViewController.h; sourceTree = "<group>"; };
 		02D9F0D11F67D5AA00C20D3D /* LCJTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJTextViewController.m; sourceTree = "<group>"; };
+		02F33B0B1FAC6184009B18C7 /* LCJCreamModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCJCreamModel.h; sourceTree = "<group>"; };
+		02F33B0C1FAC6184009B18C7 /* LCJCreamModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCJCreamModel.m; sourceTree = "<group>"; };
 		350BD6E91F4E66B4006D23F1 /* LCJTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJTabBar.h; sourceTree = "<group>"; };
 		350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJTabBar.m; sourceTree = "<group>"; };
 		350BD6F21F4E76BD006D23F1 /* UIView+LCJExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LCJExtend.h"; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 		02D9F0BF1F67D4BA00C20D3D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				02F33B0B1FAC6184009B18C7 /* LCJCreamModel.h */,
+				02F33B0C1FAC6184009B18C7 /* LCJCreamModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -643,6 +648,7 @@
 				0234E4EE1F60E0E7006F803E /* LCJMineFooterView.m in Sources */,
 				02D9F0C61F67D54800C20D3D /* LCJAllViewController.m in Sources */,
 				02D9F0CF1F67D59800C20D3D /* LCJImgViewController.m in Sources */,
+				02F33B0D1FAC6184009B18C7 /* LCJCreamModel.m in Sources */,
 				352382391F4D2EDE0035FF17 /* LCJNewViewController.m in Sources */,
 				02D9F0D21F67D5AA00C20D3D /* LCJTextViewController.m in Sources */,
 				350BD6FE1F4ED9E0006D23F1 /* LCJNavigationController.m in Sources */,

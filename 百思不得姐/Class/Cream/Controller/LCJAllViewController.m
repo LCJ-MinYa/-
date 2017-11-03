@@ -8,8 +8,14 @@
 
 #import "LCJAllViewController.h"
 #import "LCJAFHTTPClient.h"
+#import "LCJCreamModel.h"
+#import <MJExtension.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface LCJAllViewController ()
+
+//所有的帖子数据
+@property (nonatomic, strong) NSArray<LCJCreamModel *> * topics;
 
 @end
 
@@ -30,7 +36,10 @@
     [params setValue:@"list" forKey:@"a"];
     [params setValue:@"data" forKey:@"c"];
     [LCJAFHTTPClient GetService:self reqUrl:CREAM_ALL params:params success:^(id data) {
-        LCJLog(@"%@", data);
+        self.topics = [LCJCreamModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
+        
+        //刷新表格
+        [self.tableView reloadData];
     } fail:^{
         LCJLog(@"请求失败");
     } loadingText:nil showLoading:true bizError:false];
@@ -38,7 +47,7 @@
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 50;
+    return self.topics.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -51,10 +60,17 @@
     
     //3.如果为空就手动创建
     if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
         cell.backgroundColor = self.view.backgroundColor;
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%zd", indexPath.row];
+    
+    //4.显示数据
+    LCJCreamModel * topic = self.topics[indexPath.row];
+    cell.textLabel.text = topic.name;
+    cell.detailTextLabel.text = topic.text;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    
     return cell;
 }
 
