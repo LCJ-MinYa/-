@@ -147,7 +147,6 @@
 #pragma mark 标题按钮点击事件
 -(void)titleBtnClick:(UIButton *)button
 {
-    LCJLog(@"点击标题按钮");
     self.selectedTitleButton.enabled = YES;
     button.enabled = NO;
     self.selectedTitleButton = button;

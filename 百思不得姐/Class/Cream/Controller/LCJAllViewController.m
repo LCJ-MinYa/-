@@ -26,13 +26,11 @@
 #pragma mark - 请求全部数据
 -(void)loadAllData
 {
-    LCJLog(@"%f", self.view.frame.size.height);
-    LCJLog(@"%f", SCREEN_HEIGHT);
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     [params setValue:@"list" forKey:@"a"];
     [params setValue:@"data" forKey:@"c"];
     [LCJAFHTTPClient GetService:self reqUrl:CREAM_ALL params:params success:^(id data) {
-//        LCJLog(@"%@", data);
+        LCJLog(@"%@", data);
     } fail:^{
         LCJLog(@"请求失败");
     } loadingText:nil showLoading:true bizError:false];
