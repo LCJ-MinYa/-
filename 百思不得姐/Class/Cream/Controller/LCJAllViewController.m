@@ -12,11 +12,14 @@
 #import <MJExtension.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "LCJRefreshHeader.h"
+#import "LCJRefreshFooter.h"
 
 @interface LCJAllViewController ()
 
 //所有的帖子数据
-@property (nonatomic, strong) NSArray<LCJCreamModel *> * topics;
+@property (nonatomic, strong) NSMutableArray<LCJCreamModel *> * topics;
+//maxtime,加载下一页
+@property (nonatomic, copy) NSString * maxtime;
 
 @end
 
@@ -24,39 +27,67 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadAllData];
     
+    //tableview初始化的时候不显示横线
+    self.tableView.tableFooterView = [[UIView alloc]init];
     self.tableView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     
     [self setupRefresh];
 }
 
-#pragma mark - 下拉刷新
+#pragma mark - 下拉刷新上拉加载
 -(void)setupRefresh
 {
     self.tableView.mj_header = [LCJRefreshHeader headerWithRefreshingBlock:^{
-        [self loadAllData];
+        [self loadAllData:false pullRefreshOrPullUpLoad:@"refresh"];
     }];
+    
+    self.tableView.mj_footer = [LCJRefreshFooter footerWithRefreshingBlock:^{
+        [self loadAllData:false pullRefreshOrPullUpLoad:@"loading"];
+    }];
+    
+    [self.tableView.mj_header beginRefreshing];
 }
 
 #pragma mark - 请求全部数据
--(void)loadAllData
+-(void)loadAllData:(BOOL)showLoading pullRefreshOrPullUpLoad:(NSString *)pullRefreshOrPullUpLoad
 {
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     [params setValue:@"list" forKey:@"a"];
     [params setValue:@"data" forKey:@"c"];
+    if([pullRefreshOrPullUpLoad isEqualToString:@"loading"]){
+        [params setValue:self.maxtime forKey:@"maxtime"];
+    }
+    LCJLog(@"%@", params);
     [LCJAFHTTPClient GetService:self reqUrl:CREAM_ALL params:params success:^(id data) {
-        self.topics = [LCJCreamModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
+        self.maxtime = data[@"info"][@"maxtime"];
+        
+        if([pullRefreshOrPullUpLoad isEqualToString:@"loading"]){
+            NSArray * moreTopics = [LCJCreamModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
+            [self.topics addObjectsFromArray:moreTopics];
+        }else{
+            self.topics = [LCJCreamModel mj_objectArrayWithKeyValuesArray:data[@"list"]];
+        }
         
         //刷新表格
         [self.tableView reloadData];
         
         //结束下拉刷新
-        [self.tableView.mj_header endRefreshing];
+        if([pullRefreshOrPullUpLoad isEqualToString:@"loading"]){
+            [self.tableView.mj_footer endRefreshing];
+        }else if([pullRefreshOrPullUpLoad isEqualToString:@"refresh"]){
+            [self.tableView.mj_header endRefreshing];
+        }
     } fail:^{
         LCJLog(@"请求失败");
-    } loadingText:nil showLoading:true bizError:false];
+        //结束下拉刷新
+        if([pullRefreshOrPullUpLoad isEqualToString:@"loading"]){
+            [self.tableView.mj_footer endRefreshing];
+        }else if([pullRefreshOrPullUpLoad isEqualToString:@"refresh"]){
+            [self.tableView.mj_header endRefreshing];
+        }
+    } loadingText:nil showLoading:showLoading bizError:false];
 }
 
 #pragma mark - Table view data source

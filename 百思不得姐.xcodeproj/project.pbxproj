@@ -21,6 +21,7 @@
 		02D9F0CF1F67D59800C20D3D /* LCJImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0CE1F67D59800C20D3D /* LCJImgViewController.m */; };
 		02D9F0D21F67D5AA00C20D3D /* LCJTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0D11F67D5AA00C20D3D /* LCJTextViewController.m */; };
 		02ED71511FB0384F00A54414 /* LCJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ED71501FB0384F00A54414 /* LCJRefreshHeader.m */; };
+		02ED71591FB0438700A54414 /* LCJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ED71581FB0438700A54414 /* LCJRefreshFooter.m */; };
 		02F33B0D1FAC6184009B18C7 /* LCJCreamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F33B0C1FAC6184009B18C7 /* LCJCreamModel.m */; };
 		350BD6EB1F4E66B4006D23F1 /* LCJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */; };
 		350BD6F41F4E76BD006D23F1 /* UIView+LCJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6F31F4E76BD006D23F1 /* UIView+LCJExtend.m */; };
@@ -89,6 +90,8 @@
 		02D9F0D11F67D5AA00C20D3D /* LCJTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJTextViewController.m; sourceTree = "<group>"; };
 		02ED714F1FB0384F00A54414 /* LCJRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCJRefreshHeader.h; sourceTree = "<group>"; };
 		02ED71501FB0384F00A54414 /* LCJRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCJRefreshHeader.m; sourceTree = "<group>"; };
+		02ED71571FB0438700A54414 /* LCJRefreshFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCJRefreshFooter.h; sourceTree = "<group>"; };
+		02ED71581FB0438700A54414 /* LCJRefreshFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCJRefreshFooter.m; sourceTree = "<group>"; };
 		02F33B0B1FAC6184009B18C7 /* LCJCreamModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCJCreamModel.h; sourceTree = "<group>"; };
 		02F33B0C1FAC6184009B18C7 /* LCJCreamModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCJCreamModel.m; sourceTree = "<group>"; };
 		350BD6E91F4E66B4006D23F1 /* LCJTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJTabBar.h; sourceTree = "<group>"; };
@@ -197,6 +200,7 @@
 		0276C8BC1F5D34230052FBFB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				02ED71531FB0431100A54414 /* RefreshFooter */,
 				02ED714E1FB037D200A54414 /* RefreshHeader */,
 				0276C8BD1F5D34530052FBFB /* Network */,
 			);
@@ -254,6 +258,15 @@
 				02ED71501FB0384F00A54414 /* LCJRefreshHeader.m */,
 			);
 			path = RefreshHeader;
+			sourceTree = "<group>";
+		};
+		02ED71531FB0431100A54414 /* RefreshFooter */ = {
+			isa = PBXGroup;
+			children = (
+				02ED71571FB0438700A54414 /* LCJRefreshFooter.h */,
+				02ED71581FB0438700A54414 /* LCJRefreshFooter.m */,
+			);
+			path = RefreshFooter;
 			sourceTree = "<group>";
 		};
 		2412A6614FDE64AECB13BF45 /* Frameworks */ = {
@@ -656,6 +669,7 @@
 				02D9F0CC1F67D58A00C20D3D /* LCJVoiceViewController.m in Sources */,
 				02D9F0C31F67D4BA00C20D3D /* LCJCreamViewController.m in Sources */,
 				352382231F4D295B0035FF17 /* AppDelegate.m in Sources */,
+				02ED71591FB0438700A54414 /* LCJRefreshFooter.m in Sources */,
 				3523824A1F4D679E0035FF17 /* LCJDimensConfig.m in Sources */,
 				3523822D1F4D2D930035FF17 /* LCJTabBarController.m in Sources */,
 				02ED71511FB0384F00A54414 /* LCJRefreshHeader.m in Sources */,
