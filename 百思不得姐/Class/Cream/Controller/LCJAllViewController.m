@@ -11,7 +11,7 @@
 #import "LCJCreamModel.h"
 #import <MJExtension.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <MJRefresh.h>
+#import "LCJRefreshHeader.h"
 
 @interface LCJAllViewController ()
 
@@ -35,11 +35,9 @@
 #pragma mark - 下拉刷新
 -(void)setupRefresh
 {
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.mj_header = [LCJRefreshHeader headerWithRefreshingBlock:^{
         [self loadAllData];
     }];
-    self.tableView.mj_header.automaticallyChangeAlpha = YES;
-    self.tableView.mj_header.lcj_y = 40;
 }
 
 #pragma mark - 请求全部数据

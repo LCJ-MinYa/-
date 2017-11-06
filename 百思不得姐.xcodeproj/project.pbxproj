@@ -20,6 +20,7 @@
 		02D9F0CC1F67D58A00C20D3D /* LCJVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0CB1F67D58A00C20D3D /* LCJVoiceViewController.m */; };
 		02D9F0CF1F67D59800C20D3D /* LCJImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0CE1F67D59800C20D3D /* LCJImgViewController.m */; };
 		02D9F0D21F67D5AA00C20D3D /* LCJTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9F0D11F67D5AA00C20D3D /* LCJTextViewController.m */; };
+		02ED71511FB0384F00A54414 /* LCJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ED71501FB0384F00A54414 /* LCJRefreshHeader.m */; };
 		02F33B0D1FAC6184009B18C7 /* LCJCreamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F33B0C1FAC6184009B18C7 /* LCJCreamModel.m */; };
 		350BD6EB1F4E66B4006D23F1 /* LCJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6EA1F4E66B4006D23F1 /* LCJTabBar.m */; };
 		350BD6F41F4E76BD006D23F1 /* UIView+LCJExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 350BD6F31F4E76BD006D23F1 /* UIView+LCJExtend.m */; };
@@ -86,6 +87,8 @@
 		02D9F0CE1F67D59800C20D3D /* LCJImgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJImgViewController.m; sourceTree = "<group>"; };
 		02D9F0D01F67D5AA00C20D3D /* LCJTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJTextViewController.h; sourceTree = "<group>"; };
 		02D9F0D11F67D5AA00C20D3D /* LCJTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCJTextViewController.m; sourceTree = "<group>"; };
+		02ED714F1FB0384F00A54414 /* LCJRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCJRefreshHeader.h; sourceTree = "<group>"; };
+		02ED71501FB0384F00A54414 /* LCJRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCJRefreshHeader.m; sourceTree = "<group>"; };
 		02F33B0B1FAC6184009B18C7 /* LCJCreamModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCJCreamModel.h; sourceTree = "<group>"; };
 		02F33B0C1FAC6184009B18C7 /* LCJCreamModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCJCreamModel.m; sourceTree = "<group>"; };
 		350BD6E91F4E66B4006D23F1 /* LCJTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCJTabBar.h; sourceTree = "<group>"; };
@@ -122,10 +125,10 @@
 		35889E7E1F4D16D500150C99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35889E831F4D16D500150C99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35889E881F4D16D500150C99 /* 百思不得姐Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		35889E8C1F4D16D500150C99 /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _____Tests.m; sourceTree = "<group>"; };
+		35889E8C1F4D16D500150C99 /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____Tests.m"; sourceTree = "<group>"; };
 		35889E8E1F4D16D500150C99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35889E931F4D16D500150C99 /* 百思不得姐UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		35889E971F4D16D500150C99 /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _____UITests.m; sourceTree = "<group>"; };
+		35889E971F4D16D500150C99 /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____UITests.m"; sourceTree = "<group>"; };
 		35889E991F4D16D500150C99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F3088E6EAD0C6C53A7F8765 /* libPods-百思不得姐.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-百思不得姐.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC4F2D01F7DAF7549779AD4B /* Pods-百思不得姐.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.debug.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +197,7 @@
 		0276C8BC1F5D34230052FBFB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				02ED714E1FB037D200A54414 /* RefreshHeader */,
 				0276C8BD1F5D34530052FBFB /* Network */,
 			);
 			path = Utils;
@@ -241,6 +245,15 @@
 				02D9F0D11F67D5AA00C20D3D /* LCJTextViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		02ED714E1FB037D200A54414 /* RefreshHeader */ = {
+			isa = PBXGroup;
+			children = (
+				02ED714F1FB0384F00A54414 /* LCJRefreshHeader.h */,
+				02ED71501FB0384F00A54414 /* LCJRefreshHeader.m */,
+			);
+			path = RefreshHeader;
 			sourceTree = "<group>";
 		};
 		2412A6614FDE64AECB13BF45 /* Frameworks */ = {
@@ -645,6 +658,7 @@
 				352382231F4D295B0035FF17 /* AppDelegate.m in Sources */,
 				3523824A1F4D679E0035FF17 /* LCJDimensConfig.m in Sources */,
 				3523822D1F4D2D930035FF17 /* LCJTabBarController.m in Sources */,
+				02ED71511FB0384F00A54414 /* LCJRefreshHeader.m in Sources */,
 				024D71611F67855F00430DA4 /* LCJMineWebViewController.m in Sources */,
 				0234E4EE1F60E0E7006F803E /* LCJMineFooterView.m in Sources */,
 				02D9F0C61F67D54800C20D3D /* LCJAllViewController.m in Sources */,
