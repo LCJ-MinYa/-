@@ -18,8 +18,8 @@
     self.lastUpdatedTimeLabel.textColor = [UIColor orangeColor];
     self.stateLabel.textColor = [UIColor orangeColor];
     [self setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
-    [self setTitle:@"松开加载" forState:MJRefreshStatePulling];
-    [self setTitle:@"加载中..." forState:MJRefreshStateRefreshing];
+    [self setTitle:@"松开开始刷新" forState:MJRefreshStatePulling];
+    [self setTitle:@"刷新中..." forState:MJRefreshStateRefreshing];
     
 }
 

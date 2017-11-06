@@ -59,7 +59,7 @@
     if([pullRefreshOrPullUpLoad isEqualToString:@"loading"]){
         [params setValue:self.maxtime forKey:@"maxtime"];
     }
-    LCJLog(@"%@", params);
+
     [LCJAFHTTPClient GetService:self reqUrl:CREAM_ALL params:params success:^(id data) {
         self.maxtime = data[@"info"][@"maxtime"];
         
@@ -112,7 +112,6 @@
     
     //4.显示数据
     LCJCreamModel * topic = self.topics[indexPath.row];
-    cell.lcj_height = 100;
     cell.textLabel.text = topic.name;
     cell.detailTextLabel.text = topic.text;
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
