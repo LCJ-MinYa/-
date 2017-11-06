@@ -11,5 +11,6 @@ pod 'SDWebImage'
 pod 'IQKeyboardManager'
 pod 'MBProgressHUD'
 pod 'MJExtension'
+pod 'MJRefresh','3.1.15'
 
 end

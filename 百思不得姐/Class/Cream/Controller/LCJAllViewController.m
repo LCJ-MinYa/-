@@ -11,6 +11,7 @@
 #import "LCJCreamModel.h"
 #import <MJExtension.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <MJRefresh.h>
 
 @interface LCJAllViewController ()
 
@@ -27,6 +28,18 @@
     
     self.tableView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
+    [self setupRefresh];
+}
+
+#pragma mark - 下拉刷新
+-(void)setupRefresh
+{
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadAllData];
+    }];
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    self.tableView.mj_header.lcj_y = 40;
 }
 
 #pragma mark - 请求全部数据
@@ -40,6 +53,9 @@
         
         //刷新表格
         [self.tableView reloadData];
+        
+        //结束下拉刷新
+        [self.tableView.mj_header endRefreshing];
     } fail:^{
         LCJLog(@"请求失败");
     } loadingText:nil showLoading:true bizError:false];
@@ -67,6 +83,7 @@
     
     //4.显示数据
     LCJCreamModel * topic = self.topics[indexPath.row];
+    cell.lcj_height = 100;
     cell.textLabel.text = topic.name;
     cell.detailTextLabel.text = topic.text;
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
