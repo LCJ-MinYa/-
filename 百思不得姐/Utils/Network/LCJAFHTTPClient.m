@@ -69,6 +69,10 @@
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             LCJLog(@"%@", error);
             if(fail){
+                //关闭加载框
+                if(showLoading){
+                    [self hideReqLoading:loading afterDelay:0];
+                }
                 fail();
             }
         }];
@@ -87,6 +91,10 @@
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             LCJLog(@"%@", error);
             if(fail){
+                //关闭加载框
+                if(showLoading){
+                    [self hideReqLoading:loading afterDelay:0];
+                }
                 fail();
             }
         }];
